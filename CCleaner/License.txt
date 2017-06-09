@@ -1,0 +1,59 @@
+Software License Agreement for Consumers
+
+1. SOFTWARE LICENSE AGREEMENT
+
+In this License, "the Product" means the software product "CCleaner".
+
+This License is a legal agreement between you and Piriform Limited, a Cyprus limited company for the Product.
+
+By proceeding to download or install the Product, and in consideration of your use of the Product, you are deemed to agree to be bound by the terms of this License.
+
+Piriform permits you to use the Product only in accordance with the terms of this License and your rights under this License will terminate automatically without notice if you fail to comply with the terms of this License. Should your rights under this License terminate for any reason you must immediately cease all further use of the Product and destroy all copies of it.
+
+2. WARRANTY DISCLAIMER
+
+THIS PRODUCT IS DELIVERED TO YOU 'AS IS' AND WITH ALL FAULTS. PIRIFORM DO NOT WARRANT THE PERFORMANCE OR RESULTS YOU MAY OBTAIN BY USING THIS PRODUCT. EXCEPT TO THE EXTENT THAT ANY WARRANTY, CONDITION, REPRESENTATION OR TERM CANNOT BE EXCLUDED OR LIMITED BY LAW, WE MAKE NO WARRANTIES, CONDITIONS, REPRESENTATIONS OR OTHER TERMS (EXPRESS OR IMPLIED WHETHER BY STATUTE, COMMON LAW, CUSTOM, USAGE OR OTHERWISE) AS TO ANY MATTER INCLUDING, WITHOUT LIMITATION, NON-INFRINGEMENT OF THIRD PARTY RIGHTS, SATISFACTORY QUALITY AND FITNESS FOR PURPOSE. THE PROVISIONS OF THIS SECTION 2 SHALL SURVIVE THE TERMINATION OF THIS LICENSE HOWSOEVER CAUSED.
+
+3. PRODUCT LICENSE
+
+In consideration of your agreeing to abide by the terms of this License and subject to your compliance with the terms of this License, Piriform grants you a non-exclusive, non-transferable license to use the Product for the following purposes and in the following manner:
+
+- You may NOT resell, charge for, sub-license, rent, lease, loan or distribute the Product without our prior written consent. We reserve the right to withdraw any such consent (or part thereof) for any reason and without notice and to demand that you immediately cease any activity in respect of which permission is withdrawn.
+
+- You may NOT repackage, translate, adapt, vary, modify, alter, create derivative works based upon, or integrate any other computer programs with, the Product in whole or in part.
+
+- You may NOT use the Product to engage in or allow others to engage in any illegal activity.
+
+- You may NOT transfer or assign your rights or obligations under this License to any person or authorize all or any part of the Product to be copied on to another user's computer.
+
+- You may NOT decompile, disassemble, reverse engineer or otherwise attempt to discover the source code of the Product except to the extent that you may be expressly permitted to reverse engineer or decompile under applicable law.
+
+- You are NOT permitted to grant any sub-licenses of the Product.
+
+- You may NOT use the Product in corporate or commercial environments.
+
+You are under no obligation to purchase any Product support from Piriform. However, where you do so, this License is subject to any further limitations which may be set out in your support agreement with Piriform.
+
+4. INTELLECTUAL PROPERTY RIGHTS
+
+The Product is intellectual property of Piriform and is protected by law. You acknowledge that all intellectual property rights in the Product anywhere in the world belong to Piriform, that rights in the Product are licensed (not sold) to you, and that you have no rights in, or to, the Product other than the right to use them in accordance with the terms of this License.
+
+5. LIMITATION OF LIABILITY
+
+IN NO CIRCUMSTANCES WILL PIRIFORM BE LIABLE TO YOU FOR ANY DAMAGES, CLAIMS OR COSTS WHATSOEVER (WHETHER IN CONTRACT, TORT, NEGLIGENCE OR OTHERWISE) INCLUDING, WITHOUT LIMITATION, ANY LOST PROFITS, LOST SAVINGS, LOST INFORMATION, LOSS OF DATA NOR ANY CONSEQUENTIAL, INDIRECT, INCIDENTAL DAMAGES. THE FOREGOING LIMITATIONS AND EXCLUSION APPLY TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW IN YOUR JURISDICTION. Nothing in this License limits Piriform's liability to you in the event of death or personal injury resulting from our negligence or for fraud. The provisions of this section 6 shall survive the termination of this License howsoever caused.
+
+6. LAW AND JURISDICTION
+
+This License and any dispute or claim arising out of or in connection with it or its subject matter or its formation (including non-contractual disputes or claims) shall be governed by and construed in accordance with English law and submitted to the non-exclusive jurisdiction of the English courts.
+
+7. GENERAL
+
+- If any part of this License is found to be void and unenforceable it will not affect the validity of the remainder of this License, which shall remain valid and enforceable according to its terms.
+
+- This License may only be varied in writing and signed by an authorized representative of Piriform.
+
+- Updates may be licensed to you by Piriform with additional or different terms but Piriform has no obligation to provide any updates.
+
+- This License is the entire agreement between you and us and supersedes any prior representations, undertakings or advertising relating to the Product and you acknowledge that in entering into this License you have not relied on any statement, representation, advertising, assurance or warranty (whether made negligently or innocently) other than as expressly set out in this License.
+
+- Piriform is entitled to transfer or assign any of its rights or obligations under the License.
