@@ -57,6 +57,10 @@ REM schtasks /Change /DISABLE /TN "\Microsoft\Windows\WS\WSRefreshBannedAppsList
 REM schtasks /Change /DISABLE /TN "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator" >nul
 REM schtasks /Change /DISABLE /TN "\Microsoft\Windows\Wininet\CacheTask" >nul
 
+REM Disable Telemetry and Data Collection
+sc config dmwappushservice start=disabled >nul
+sc stop dmwappushservice >nul
+
 REM Google
 sc config gupdate start=demand >nul
 sc stop gupdate >nul
@@ -86,11 +90,11 @@ sc config "Pml Driver HPZ12" start=demand >nul
 sc stop "Pml Driver HPZ12" >nul
 
 REM Windows 10: Fix Event 7031 System Control Manager
-sc config "OneSyncSvc" start=demand >nul
+sc config "OneSyncSvc" start=disabled >nul
 sc stop "OneSyncSvc" >nul
 
 REM Windows 10: Fix Event 7031 System Control Manager
-sc config "OneSyncSvc_470c3" start=demand >nul
+sc config "OneSyncSvc_470c3" start=disabled >nul
 sc stop "OneSyncSvc_470c3" >nul
 
 REM Adobe Genuine Integrity Service
