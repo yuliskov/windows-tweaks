@@ -129,6 +129,15 @@ REM REM Font Cache Service
 REM sc config FontCache start=demand >nul
 REM sc stop FontCache >nul
 
+REM Block unwanted hosts (Adobe)
+set HOSTS=data\hosts.exe
+%HOSTS% set lmlicenses.wip4.adobe.com 0.0.0.0
+%HOSTS% set lm.licenses.adobe.com 0.0.0.0
+%HOSTS% set na1r.services.adobe.com 0.0.0.0
+%HOSTS% set hlrcv.stage.adobe.com 0.0.0.0
+%HOSTS% set practivate.adobe.com  0.0.0.0
+%HOSTS% set activate.adobe.com 0.0.0.0
+
 
 REM Uninstall registry paths:
 REM HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\
@@ -301,6 +310,10 @@ REM powercfg -h off
 powercfg -h on
 REM turn off hdd after 60 minutes of inactivity (default - 20 min)
 powercfg -change -disk-timeout-ac 60
+REM disable wake timers (plugged in) 
+powercfg /SETACVALUEINDEX SCHEME_CURRENT 238c9fa8-0aad-41ed-83f4-97be242c8f20 bd3b718a-0680-4d9d-8ab2-e1d2b4ac806d 0
+REM disable wake timers (on battery) 
+powercfg /SETDCVALUEINDEX SCHEME_CURRENT 238c9fa8-0aad-41ed-83f4-97be242c8f20 bd3b718a-0680-4d9d-8ab2-e1d2b4ac806d 0
 
 REM HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
 REM enable auto login (select in GUI)
