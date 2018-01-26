@@ -293,11 +293,21 @@ MsiExec.exe /X{90160000-001F-0C1A-1000-0000000FF1CE} /passive
 MsiExec.exe /X{90160000-001F-141A-1000-0000000FF1CE} /passive
 
 
+REM Uninstall some of the Windows 10’s Built-in Apps
+REM You can easily reinstall them with this command: 
+REM Get-AppxPackage -AllUsers| Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
+powershell -Command "Get-AppxPackage *zunemusic* | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage *bingsports* | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage *xboxapp* | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage *3dbuilder* | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage *officehub* | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage *solitairecollection* | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage *windowsphone* | Remove-AppxPackage"
+
 
 REM Are we running from scheduled task? Limit to basic job only.
 REM NOTE: exit /b to return "operation completed successfully"
 if "%1"=="task" exit /b
-
 
 echo Cleaning System
 
