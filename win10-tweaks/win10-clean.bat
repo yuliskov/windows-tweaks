@@ -57,9 +57,25 @@ REM schtasks /Change /DISABLE /TN "\Microsoft\Windows\WS\WSRefreshBannedAppsList
 REM schtasks /Change /DISABLE /TN "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator" >nul
 REM schtasks /Change /DISABLE /TN "\Microsoft\Windows\Wininet\CacheTask" >nul
 
+
+
+REM Start Services
+
+
+
+
 REM Disable Telemetry and Data Collection
 sc config dmwappushservice start=disabled >nul
 sc stop dmwappushservice >nul
+
+REM Diagnostics Tracking Service
+sc config DiagTrack start=disabled >nul
+sc stop DiagTrack >nul
+
+REM Microsoft (R) Diagnostics Hub Standard Collector Service
+REM HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service
+sc config diagnosticshub.standardcollector.service start=disabled >nul
+sc stop diagnosticshub.standardcollector.service >nul
 
 REM Google
 sc config gupdate start=demand >nul
@@ -113,9 +129,14 @@ REM Punk Buster game service
 sc config PnkBstrA start=demand >nul
 sc stop PnkBstrA >nul
 
-REM REM Superfetch Service (background caching)
+REM REM Superfetch Service (background caching, increase RAM usage)
+REM REM Optimize Windows 10: https://www.tenforums.com/tutorials/26120-optimize-performance-windows-10-a.html
 REM sc config SysMain start=demand >nul
 REM sc stop SysMain >nul
+
+REM Search Indexing Service
+REM sc config WSearch start=demand >nul
+REM sc stop WSearch >nul
 
 REM REM Offline Files
 REM sc config CscService start=demand >nul
@@ -128,6 +149,13 @@ REM sc stop TabletInputService >nul
 REM REM Font Cache Service
 REM sc config FontCache start=demand >nul
 REM sc stop FontCache >nul
+
+
+
+REM End Services
+
+
+
 
 REM Block unwanted hosts (Adobe)
 set HOSTS=data\hosts.exe
@@ -294,8 +322,10 @@ MsiExec.exe /X{90160000-001F-141A-1000-0000000FF1CE} /passive
 
 
 REM Uninstall some of the Windows 10’s Built-in Apps
+REM https://www.howtogeek.com/224798/how-to-uninstall-windows-10s-built-in-apps-and-how-to-reinstall-them/
 REM You can easily reinstall them with this command: 
 REM Get-AppxPackage -AllUsers| Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
+REM More info: https://github.com/W4RH4WK/Debloat-Windows-10
 powershell -Command "Get-AppxPackage *zunemusic* | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage *bingsports* | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage *xboxapp* | Remove-AppxPackage"
@@ -303,6 +333,17 @@ powershell -Command "Get-AppxPackage *3dbuilder* | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage *officehub* | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage *solitairecollection* | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage *windowsphone* | Remove-AppxPackage"
+REM not enough permission
+REM powershell -Command "Get-AppxPackage *people* | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage *windowsmaps* | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage *windowscommunicationsapps* | Remove-AppxPackage"
+REM Mixed Reality Portal
+REM powershell -Command "Get-AppxPackage *holographic* | Remove-AppxPackage"
+REM SMS app
+powershell -Command "Get-AppxPackage *messaging* | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage *xboxidentity* | Remove-AppxPackage"
+REM Microsoft Phone app (do call, answer, etc)
+powershell -Command "Get-AppxPackage *commsphone* | Remove-AppxPackage"
 
 
 REM Are we running from scheduled task? Limit to basic job only.
@@ -317,7 +358,7 @@ REM powercfg -SETACVALUEINDEX SCHEME_BALANCED SUB_NONE CONSOLELOCK 0
 
 REM disable hybrid sleep (save ssd life)
 REM powercfg -h off
-powercfg -h on
+REM powercfg -h on
 REM turn off hdd after 60 minutes of inactivity (default - 20 min)
 powercfg -change -disk-timeout-ac 60
 REM disable wake timers (plugged in) 
