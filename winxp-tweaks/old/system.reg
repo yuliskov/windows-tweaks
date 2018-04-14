@@ -1,0 +1,13 @@
+Windows Registry Editor Version 5.00
+
+; TODO: keyboard inidicator for all users
+; TODO: font smoothing for some kind of fonts
+; TODO: fix 7-zip open image via standard viewer
+
+; Disable System Restore in policy. Full and simple!!! This is most intrusive way.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore]
+"DisableSR"=dword:1
+
+; Disable Remote Assistance connection
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance]
+"fAllowToGetHelp"=dword:0

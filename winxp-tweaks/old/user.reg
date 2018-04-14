@@ -1,0 +1,83 @@
+Windows Registry Editor Version 5.00
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; LOCAL TWEAKS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Create English, Russian and Ukrainian keyboard layouts
+[-HKEY_CURRENT_USER\Keyboard Layout\Preload]
+[HKEY_CURRENT_USER\Keyboard Layout\Preload]
+"1"="00000409"
+"2"="00000419"
+"3"="00000422"
+
+; Ukrainian enchanced
+[-HKEY_CURRENT_USER\Keyboard Layout\Substitutes]
+[HKEY_CURRENT_USER\Keyboard Layout\Substitutes]
+"00000422"="00020422"
+
+; Add language switch keyboard shortcuts
+; English, Ctrl + 1
+[-HKEY_CURRENT_USER\Control Panel\Input Method\Hot Keys]
+[HKEY_CURRENT_USER\Control Panel\Input Method\Hot Keys\00000100]
+"Key Modifiers"=hex:02,c0,00,00
+"Target IME"=hex:09,04,09,04
+"Virtual Key"=hex:31,00,00,00
+; Russian, Ctrl + 2
+[HKEY_CURRENT_USER\Control Panel\Input Method\Hot Keys\00000101]
+"Key Modifiers"=hex:02,c0,00,00
+"Target IME"=hex:19,04,19,04
+"Virtual Key"=hex:32,00,00,00
+; Ukrainian (Extended), Ctrl + 3
+[HKEY_CURRENT_USER\Control Panel\Input Method\Hot Keys\00000102]
+"Key Modifiers"=hex:02,c0,00,00
+"Target IME"=hex:22,04,a8,f0
+"Virtual Key"=hex:33,00,00,00
+
+
+; Don't add "Shortcut to" to link's names
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer]
+"link"=hex:00,00,00,00
+
+; Show all items (don't collapse) in notification area
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer]
+"EnableAutoTray"=dword:0
+
+; Explorer various tweaks
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+; show extensions for files
+"HideFileExt"=dword:0
+
+; Disable autoplay. Note that it differ from autorun.
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers]
+"DisableAutoplay"=dword:1
+
+; Disable StickyKeys message when SHIFT was pressed five times
+[HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys]
+"Flags"="506"
+
+; Disable Internet Explorer first run popup dialog
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main]
+"DisableFirstRunCustomize"=dword:1
+
+; put Windows Media Player on top
+; skip first run dialog (???)
+[HKEY_CURRENT_USER\Software\Microsoft\MediaPlayer\Preferences]
+"AlwaysOnTopVTenSkin"=dword:1
+"AcceptedPrivacyStatement"=dword:1
+
+; console old settings
+[-HKEY_CURRENT_USER\Console\%SystemRoot%_System32_cmd.exe]
+
+; Console various tweaks.
+; Enable copy typed text. Note, you can copy text by selecting and then clicking right mouse button.
+; Console max size. The first four bytes represent the number of lines. The last four bytes - number of columns.
+; For example, 0x190050, indicates that the screen buffer is 25 (0x19) lines high and 80 (0x50) columns wide.
+[HKEY_CURRENT_USER\Console]
+"QuickEdit"=dword:1
+"ScreenBufferSize"=dword:2580200
+; "FaceName"="Lucida Console"
+; "FontSize"=dword:e0000
+"FaceName"="Consolas"
+;"FontSize"=dword:100000
+"FontSize"=dword:f0000
+"FontWeight"=dword:2bc
+
