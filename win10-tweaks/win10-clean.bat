@@ -166,6 +166,11 @@ set HOSTS=data\hosts.exe
 %HOSTS% set practivate.adobe.com  0.0.0.0
 %HOSTS% set activate.adobe.com 0.0.0.0
 
+REM SublimeText2
+set HOSTS=data\hosts.exe
+%HOSTS% set license.sublimehq.com 0.0.0.0
+%HOSTS% set 45.55.255.55 0.0.0.0
+%HOSTS% set 45.55.41.223 0.0.0.0
 
 REM Uninstall registry paths:
 REM HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\
