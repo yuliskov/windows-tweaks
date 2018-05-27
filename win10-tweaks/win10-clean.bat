@@ -351,11 +351,15 @@ REM Microsoft Phone app (do call, answer, etc)
 powershell -Command "Get-AppxPackage *commsphone* | Remove-AppxPackage"
 
 
+REM Reset Idea trial
+REM ./reset-idea.bat
+
+
 REM Are we running from scheduled task? Limit to basic job only.
 REM NOTE: exit /b to return "operation completed successfully"
 if "%1"=="task" exit /b
 
-echo Cleaning System
+echo Cleaning System (run once tweaks)
 
 REM REM FIXME: set values on active power scheme
 REM REM disable 'require a password on wakeup' (0=no, 1=yes)
