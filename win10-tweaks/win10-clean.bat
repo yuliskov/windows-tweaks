@@ -57,12 +57,13 @@ REM schtasks /Change /DISABLE /TN "\Microsoft\Windows\WS\WSRefreshBannedAppsList
 REM schtasks /Change /DISABLE /TN "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator" >nul
 REM schtasks /Change /DISABLE /TN "\Microsoft\Windows\Wininet\CacheTask" >nul
 
-
+REM OneDrive update task
+schtasks /Change /DISABLE /TN "\OneDrive Standalone Update Task v2" >nul
 
 REM Start Services
 
-
-
+REM Unwanted Windows services (BEGIN)
+REM Details: https://github.com/W4RH4WK/Debloat-Windows-10/blob/master/scripts/disable-services.ps1
 
 REM Disable Telemetry and Data Collection
 sc config dmwappushservice start=disabled >nul
@@ -76,6 +77,12 @@ REM Microsoft (R) Diagnostics Hub Standard Collector Service
 REM HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service
 sc config diagnosticshub.standardcollector.service start=disabled >nul
 sc stop diagnosticshub.standardcollector.service >nul
+
+REM Distributed Link Tracking Client (update link to file when one moved)
+sc config TrkWks start=demand >nul
+sc stop TrkWks >nul
+
+REM Unwanted Windows services (END)
 
 REM Google
 sc config gupdate start=demand >nul
@@ -116,10 +123,6 @@ sc stop "OneSyncSvc_470c3" >nul
 REM Adobe Genuine Integrity Service
 sc config "AGSService" start=demand >nul
 sc stop "AGSService" >nul
-
-REM Distributed Link Tracking Client (update link to file when one moved)
-sc config TrkWks start=demand >nul
-sc stop TrkWks >nul
 
 REM Program Compatability Assistent
 sc config PcaSvc start=demand >nul
@@ -204,6 +207,12 @@ MsiExec.exe /X{710f4c1c-cc18-4c49-8cbf-51240c89a1a2} /passive
 
 REM Microsoft Visual C++ 2005 Redistributable
 MsiExec.exe /X{7299052b-02a4-4627-81f2-1818da5d550d} /passive
+
+REM Microsoft Visual C++ 2005 Redistributable 8.0.56336
+MsiExec.exe /X{071c9b48-7c32-4621-a0ac-3f809523288f} /passive
+
+REM EFLC update 2
+MsiExec.exe /X{5454083B-1308-4485-BF17-111000038701} /passive
 
 REM REM Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161 (MSI AfterBurner)
 REM MsiExec.exe /X{9BE518E6-ECC6-35A9-88E4-87755C07200F} /passive
@@ -342,7 +351,7 @@ REM not enough permission
 REM powershell -Command "Get-AppxPackage *people* | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage *windowsmaps* | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage *windowscommunicationsapps* | Remove-AppxPackage"
-REM Mixed Reality Portal
+REM Mixed Reality Portal (error when trying to uninstall)
 REM powershell -Command "Get-AppxPackage *holographic* | Remove-AppxPackage"
 REM SMS app
 powershell -Command "Get-AppxPackage *messaging* | Remove-AppxPackage"
@@ -359,7 +368,7 @@ REM Are we running from scheduled task? Limit to basic job only.
 REM NOTE: exit /b to return "operation completed successfully"
 if "%1"=="task" exit /b
 
-echo Cleaning System (run once tweaks)
+echo Cleaning System ('run once' tweaks)
 
 REM REM FIXME: set values on active power scheme
 REM REM disable 'require a password on wakeup' (0=no, 1=yes)
@@ -379,3 +388,6 @@ REM HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
 REM enable auto login (select in GUI)
 set REG=HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
 reg query "%REG%" /v AutoAdminLogon | findstr 0 >nul && netplwiz
+
+REM Clean Up the WinSxS Folder
+DISM /Online /Cleanup-Image /StartComponentCleanup
