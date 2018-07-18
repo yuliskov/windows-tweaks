@@ -3,7 +3,8 @@
 title Cleanup running. Do not close.
 
 cd /d "%~dp0"
-
+REM utf-8 encoding, support russian text
+chcp 65001
 
 
 REM Run this script with administrative privilegies
@@ -32,8 +33,11 @@ REM Valid schedule types: MINUTE, HOURLY, DAILY, WEEKLY, MONTHLY, ONCE, ONSTART,
 REM Example: schtasks /Create /TN "Cleanup Task" /SC WEEKLY /TR "\"%0\" task" /RL HIGHEST /F
 
 REM workaround with absent option 'run task as soon as possible'
+REM NOTE: can't combine all params in one schtasks command
 schtasks /Create /TN "Cleanup Task" /xml "data/Cleanup Task.xml" /F
 schtasks /Change /TN "Cleanup Task" /TR "\"%0\" task" /RU Users /RL HIGHEST
+REM ru fix: all default users and groups are localized on non-english locales
+schtasks /Change /TN "Cleanup Task" /TR "\"%0\" task" /RU Пользователи /RL HIGHEST
 
 echo ====================
 echo Beginning cleanup...
@@ -77,7 +81,9 @@ goto WINDOWS_END
 
 :WINDOWS_7
 echo Windows 7 detected
-REM NOP
+pushd win7-tweaks
+call win7-clean.bat
+popd
 goto WINDOWS_END
 
 :WINDOWS_END
@@ -97,6 +103,7 @@ REM REM remove driver backups (view: pnputil -e)
 REM for /l %%N in (1,1,30) do pnputil -d oem%%N.inf >nul
 
 REM clear event logs, some logs cannot be cleared
+echo Clearing event logs...
 for /f %%E in ('wevtutil el') do wevtutil cl %%E 2>nul
 
 REM defrag only work with elevate-x64
@@ -108,4 +115,5 @@ REM if "%ERRORLEVEL%"=="0" goto DEFRAG_OK
 REM start /wait rundll32.exe advapi32.dll,ProcessIdleTasks
 REM :DEFRAG_OK
 
-call data\play_sound.bat
+REM problem on win7 ro folder
+REM call data\play_sound.bat
