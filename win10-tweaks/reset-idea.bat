@@ -28,7 +28,7 @@ goto :eof
 	echo Setting up scheduled task...
 	set MY_TASK_NAME="Reset Idea Trial"
 	REM run task every 25 days (MO) on this user account (IT)
-	set MY_TASK_COMMAND=schtasks /Create /TN "%MY_TASK_NAME%" /SC DAILY /MO 25 /IT /TR ""%THIS_NAME%"" /RL HIGHEST /F
+	set MY_TASK_COMMAND=schtasks /Create /TN "%MY_TASK_NAME%" /SC DAILY /MO 25 /ST 20:00 /IT /TR ""%THIS_NAME%"" /RL HIGHEST /F
 	schtasks /query /TN %MY_TASK_NAME% >NUL 2>&1
 	if %errorlevel% NEQ 0 call :Elevate %MY_TASK_COMMAND%
 	echo done
