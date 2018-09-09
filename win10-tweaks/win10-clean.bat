@@ -88,10 +88,6 @@ REM Google
 sc config gupdate start=demand >nul
 sc stop gupdate >nul
 
-REM Adobe
-sc config AdobeUpdateService start=demand >nul
-sc stop AdobeUpdateService >nul
-
 REM Nvidia
 sc config nvUpdatusService start=demand >nul
 sc stop nvUpdatusService >nul
@@ -120,6 +116,10 @@ REM Windows 10: Fix Event 7031 System Control Manager
 sc config "OneSyncSvc_470c3" start=disabled >nul
 sc stop "OneSyncSvc_470c3" >nul
 
+REM Adobe
+sc config AdobeUpdateService start=demand >nul
+sc stop AdobeUpdateService >nul
+
 REM Adobe Genuine Integrity Service
 sc config "AGSService" start=demand >nul
 sc stop "AGSService" >nul
@@ -131,6 +131,10 @@ sc stop PcaSvc >nul
 REM Punk Buster game service
 sc config PnkBstrA start=demand >nul
 sc stop PnkBstrA >nul
+
+REM Intel content protection service
+sc config cphs start=demand >nul
+sc stop cphs >nul
 
 REM REM Superfetch Service (background caching, increase RAM usage)
 REM REM Optimize Windows 10: https://www.tenforums.com/tutorials/26120-optimize-performance-windows-10-a.html
@@ -179,7 +183,14 @@ REM Uninstall registry paths:
 REM HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\
 REM HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\
 
-REM Adobe Creative Suite
+REM Microsoft Visual C++ 2005 Redistributable
+MsiExec.exe /X{710f4c1c-cc18-4c49-8cbf-51240c89a1a2} /passive
+
+REM Microsoft Visual C++ 2005 Redistributable
+MsiExec.exe /X{7299052b-02a4-4627-81f2-1818da5d550d} /passive
+
+REM Microsoft Visual C++ 2005 Redistributable (x64) 8.0.56336
+MsiExec.exe /X{071c9b48-7c32-4621-a0ac-3f809523288f} /passive
 
 REM Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.17
 msiexec /X{9A25302D-30C0-39D9-BD6F-21E6EC160475} /passive
@@ -202,20 +213,8 @@ MsiExec.exe /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7} /passive
 REM Microsoft Visual C++ 2010  x32 Redistributable - 10.0.40219
 MsiExec.exe /X{F0C3E5D1-1ADE-321E-8167-68EF0DE699A5} /passive
 
-REM Microsoft Visual C++ 2005 Redistributable
-MsiExec.exe /X{710f4c1c-cc18-4c49-8cbf-51240c89a1a2} /passive
-
-REM Microsoft Visual C++ 2005 Redistributable
-MsiExec.exe /X{7299052b-02a4-4627-81f2-1818da5d550d} /passive
-
-REM Microsoft Visual C++ 2005 Redistributable 8.0.56336
-MsiExec.exe /X{071c9b48-7c32-4621-a0ac-3f809523288f} /passive
-
 REM EFLC update 2
 MsiExec.exe /X{5454083B-1308-4485-BF17-111000038701} /passive
-
-REM REM Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161 (MSI AfterBurner)
-REM MsiExec.exe /X{9BE518E6-ECC6-35A9-88E4-87755C07200F} /passive
 
 REM Microsoft Visual C++ 2012 Redistributable (x86) - 11.0.61030
 "C:\ProgramData\Package Cache\{33d1fd90-4274-48a1-9bc1-97e33d9c2d6f}\vcredist_x86.exe" /uninstall /quiet
@@ -340,6 +339,7 @@ REM https://www.howtogeek.com/224798/how-to-uninstall-windows-10s-built-in-apps-
 REM You can easily reinstall them with this command: 
 REM Get-AppxPackage -AllUsers| Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
 REM More info: https://github.com/W4RH4WK/Debloat-Windows-10
+REM list packages: Get-AppxPackage -AllUsers | out-string -stream | select-string "^Name"
 powershell -Command "Get-AppxPackage *zunemusic* | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage *bingsports* | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage *xboxapp* | Remove-AppxPackage"
