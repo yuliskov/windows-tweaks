@@ -116,12 +116,12 @@ REM Windows 10: Fix Event 7031 System Control Manager
 sc config "OneSyncSvc_470c3" start=disabled >nul
 sc stop "OneSyncSvc_470c3" >nul
 
-REM Adobe
-sc config AdobeUpdateService start=demand >nul
+REM Adobe Autoupdate
+sc config AdobeUpdateService start=disabled >nul
 sc stop AdobeUpdateService >nul
 
 REM Adobe Genuine Integrity Service
-sc config "AGSService" start=demand >nul
+sc config "AGSService" start=disabled >nul
 sc stop "AGSService" >nul
 
 REM Program Compatability Assistent
@@ -162,8 +162,6 @@ REM sc stop FontCache >nul
 REM End Services
 
 
-
-
 REM Block unwanted hosts (Adobe)
 set HOSTS=data\hosts.exe
 %HOSTS% set lmlicenses.wip4.adobe.com 0.0.0.0
@@ -172,6 +170,9 @@ set HOSTS=data\hosts.exe
 %HOSTS% set hlrcv.stage.adobe.com 0.0.0.0
 %HOSTS% set practivate.adobe.com  0.0.0.0
 %HOSTS% set activate.adobe.com 0.0.0.0
+
+REM Block background app (Adobe)
+ren "%ProgramFiles(x86)%\Common Files\Adobe\OOBE\PDApp\IPC\AdobeIPCBroker.exe" "AdobeIPCBroker.exe.bak" 2>nul
 
 REM SublimeText2
 set HOSTS=data\hosts.exe
@@ -359,9 +360,8 @@ powershell -Command "Get-AppxPackage *xboxidentity* | Remove-AppxPackage"
 REM Microsoft Phone app (do call, answer, etc)
 powershell -Command "Get-AppxPackage *commsphone* | Remove-AppxPackage"
 
-
-REM Reset Idea trial
-REM ./reset-idea.bat
+REM Add other modules here
+REM ./run-modules.bat
 
 
 REM Are we running from scheduled task? Limit to basic job only.
