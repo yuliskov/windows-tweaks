@@ -44,12 +44,12 @@ echo Beginning cleanup...
 echo ====================
 
 REM close processes that interfere with cleanup tasks
-start /wait %NIRCMD% closeprocess chrome.exe
+REM start /wait %NIRCMD% closeprocess chrome.exe
 
 start /wait %CCLEANER% /auto
 
 REM restore processes
-start /d "C:\Program Files (x86)\Google\Chrome\Application" chrome.exe --start-maximized --disk-cache-size=104857600
+REM start /d "C:\Program Files (x86)\Google\Chrome\Application" chrome.exe --start-maximized --disk-cache-size=104857600
 
 echo =============================
 echo Entering main cleanup part...

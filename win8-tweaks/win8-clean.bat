@@ -108,25 +108,25 @@ REM HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\
 REM HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\
 
 REM Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.17
-msiexec /X{9A25302D-30C0-39D9-BD6F-21E6EC160475} /passive
+MsiExec.exe /X{9A25302D-30C0-39D9-BD6F-21E6EC160475} /passive /quiet
 
 REM Microsoft Visual C++ 2008 Redistributable - x64 9.0.21022
-MsiExec.exe /X{350AA351-21FA-3270-8B7A-835434E766AD} /passive
+MsiExec.exe /X{350AA351-21FA-3270-8B7A-835434E766AD} /passive /quiet
 
 REM Microsoft Visual C++ 2008 Redistributable - x64 9.0.30729.4148
-MsiExec.exe /X{4B6C7001-C7D6-3710-913E-5BC23FCE91E6} /passive
+MsiExec.exe /X{4B6C7001-C7D6-3710-913E-5BC23FCE91E6} /passive /quiet
 
 REM Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.4148
-MsiExec.exe /X{1F1C2DFC-2D24-3E06-BCB8-725134ADF989} /passive
+MsiExec.exe /X{1F1C2DFC-2D24-3E06-BCB8-725134ADF989} /passive /quiet
 
 REM Microsoft Visual C++ 2010  x64 Redistributable - 10.0.40219
-MsiExec.exe /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7} /passive
+MsiExec.exe /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7} /passive /quiet
 
 REM Microsoft Visual C++ 2010  x32 Redistributable - 10.0.40219
-MsiExec.exe /X{F0C3E5D1-1ADE-321E-8167-68EF0DE699A5} /passive
+MsiExec.exe /X{F0C3E5D1-1ADE-321E-8167-68EF0DE699A5} /passive /quiet
 
 REM Microsoft Visual C++ 2005 Redistributable
-MsiExec.exe /X{710f4c1c-cc18-4c49-8cbf-51240c89a1a2} /passive
+MsiExec.exe /X{710f4c1c-cc18-4c49-8cbf-51240c89a1a2} /passive /quiet
 
 
 REM Are we running from scheduled task? Limit to basic job only.

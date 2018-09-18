@@ -136,6 +136,22 @@ REM Intel content protection service
 sc config cphs start=demand >nul
 sc stop cphs >nul
 
+REM REM Connected Devices Platform Service (Auto-Delayed)
+REM sc config CDPSvc start=demand >nul
+REM sc stop CDPSvc >nul
+
+REM REM Connected Devices Platform User Service_30c79 (Auto) DISABLE NOT WORK
+REM sc config CDPUserSvc_30c79 start=demand >nul
+REM sc stop CDPUserSvc_30c79 >nul
+
+REM REM Windows Push Notifications System Service (Auto)
+REM sc config WpnService start=demand >nul
+REM sc stop WpnService >nul
+
+REM REM Windows Push Notifications User Service_30c79 (Auto) DISABLE NOT WORK
+REM sc config WpnUserService_30c79 start=demand >nul
+REM sc stop WpnUserService_30c79 >nul
+
 REM REM Superfetch Service (background caching, increase RAM usage)
 REM REM Optimize Windows 10: https://www.tenforums.com/tutorials/26120-optimize-performance-windows-10-a.html
 REM sc config SysMain start=demand >nul
@@ -156,8 +172,6 @@ REM sc stop TabletInputService >nul
 REM REM Font Cache Service
 REM sc config FontCache start=demand >nul
 REM sc stop FontCache >nul
-
-
 
 REM End Services
 
@@ -185,37 +199,37 @@ REM HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\
 REM HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\
 
 REM Microsoft Visual C++ 2005 Redistributable
-MsiExec.exe /X{710f4c1c-cc18-4c49-8cbf-51240c89a1a2} /passive
+MsiExec.exe /X{710f4c1c-cc18-4c49-8cbf-51240c89a1a2} /passive /quiet
 
 REM Microsoft Visual C++ 2005 Redistributable
-MsiExec.exe /X{7299052b-02a4-4627-81f2-1818da5d550d} /passive
+MsiExec.exe /X{7299052b-02a4-4627-81f2-1818da5d550d} /passive /quiet
 
 REM Microsoft Visual C++ 2005 Redistributable (x64) 8.0.56336
-MsiExec.exe /X{071c9b48-7c32-4621-a0ac-3f809523288f} /passive
+MsiExec.exe /X{071c9b48-7c32-4621-a0ac-3f809523288f} /passive /quiet
 
 REM Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.17
-msiexec /X{9A25302D-30C0-39D9-BD6F-21E6EC160475} /passive
+msiexec /X{9A25302D-30C0-39D9-BD6F-21E6EC160475} /passive /quiet
 
 REM Microsoft Visual C++ 2008 Redistributable - x64 9.0.30729.17
-MsiExec.exe /X{8220EEFE-38CD-377E-8595-13398D740ACE} /passive
+MsiExec.exe /X{8220EEFE-38CD-377E-8595-13398D740ACE} /passive /quiet
 
 REM Microsoft Visual C++ 2008 Redistributable - x64 9.0.21022
-MsiExec.exe /X{350AA351-21FA-3270-8B7A-835434E766AD} /passive
+MsiExec.exe /X{350AA351-21FA-3270-8B7A-835434E766AD} /passive /quiet
 
 REM Microsoft Visual C++ 2008 Redistributable - x64 9.0.30729.4148
-MsiExec.exe /X{4B6C7001-C7D6-3710-913E-5BC23FCE91E6} /passive
+MsiExec.exe /X{4B6C7001-C7D6-3710-913E-5BC23FCE91E6} /passive /quiet
 
 REM Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.4148
-MsiExec.exe /X{1F1C2DFC-2D24-3E06-BCB8-725134ADF989} /passive
+MsiExec.exe /X{1F1C2DFC-2D24-3E06-BCB8-725134ADF989} /passive /quiet
 
 REM Microsoft Visual C++ 2010  x64 Redistributable - 10.0.40219
-MsiExec.exe /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7} /passive
+MsiExec.exe /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7} /passive /quiet
 
 REM Microsoft Visual C++ 2010  x32 Redistributable - 10.0.40219
-MsiExec.exe /X{F0C3E5D1-1ADE-321E-8167-68EF0DE699A5} /passive
+MsiExec.exe /X{F0C3E5D1-1ADE-321E-8167-68EF0DE699A5} /passive /quiet
 
 REM EFLC update 2
-MsiExec.exe /X{5454083B-1308-4485-BF17-111000038701} /passive
+MsiExec.exe /X{5454083B-1308-4485-BF17-111000038701} /passive /quiet
 
 REM Microsoft Visual C++ 2012 Redistributable (x86) - 11.0.61030
 "C:\ProgramData\Package Cache\{33d1fd90-4274-48a1-9bc1-97e33d9c2d6f}\vcredist_x86.exe" /uninstall /quiet
@@ -240,99 +254,99 @@ REM MsiExec.exe /X{13A4EE12-23EA-3371-91EE-EFB36DDFFF3E} /passive
 
 
 REM Office 2016 unused MUI #1
-MsiExec.exe /X{90160000-001F-0401-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0402-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0403-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0404-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0405-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0406-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0407-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0408-1000-0000000FF1CE} /passive
+MsiExec.exe /X{90160000-001F-0401-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0402-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0403-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0404-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0405-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0406-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0407-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0408-1000-0000000FF1CE} /passive /quiet
 REM Office 2016 unused MUI #2
-MsiExec.exe /X{90160000-001F-040B-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-040C-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-040D-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-040E-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-040F-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0410-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0411-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0412-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0413-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0414-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0415-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0416-1000-0000000FF1CE} /passive
+MsiExec.exe /X{90160000-001F-040B-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-040C-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-040D-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-040E-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-040F-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0410-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0411-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0412-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0413-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0414-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0415-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0416-1000-0000000FF1CE} /passive /quiet
 REM Office 2016 unused MUI #3
-MsiExec.exe /X{90160000-001F-0418-1000-0000000FF1CE} /passive
+MsiExec.exe /X{90160000-001F-0418-1000-0000000FF1CE} /passive /quiet
 REM Office 2016 unused MUI #4
-MsiExec.exe /X{90160000-001F-041A-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-041B-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-041C-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-041D-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-041E-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-041F-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0420-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0421-1000-0000000FF1CE} /passive
+MsiExec.exe /X{90160000-001F-041A-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-041B-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-041C-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-041D-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-041E-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-041F-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0420-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0421-1000-0000000FF1CE} /passive /quiet
 REM Office 2016 unused MUI #5
-MsiExec.exe /X{90160000-001F-0424-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0425-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0426-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0427-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0428-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0429-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-042A-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-042B-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-042C-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-042D-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-042E-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-042F-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0432-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0434-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0435-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0436-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0437-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0438-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0439-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-043A-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-043E-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-043F-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0440-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0441-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0443-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0444-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0445-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0446-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0447-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0448-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0449-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-044A-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-044B-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-044C-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-044D-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-044E-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0452-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0456-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0457-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-045B-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0461-1000-0000000FF1CE} /passive
+MsiExec.exe /X{90160000-001F-0424-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0425-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0426-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0427-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0428-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0429-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-042A-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-042B-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-042C-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-042D-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-042E-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-042F-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0432-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0434-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0435-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0436-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0437-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0438-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0439-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-043A-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-043E-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-043F-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0440-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0441-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0443-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0444-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0445-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0446-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0447-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0448-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0449-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-044A-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-044B-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-044C-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-044D-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-044E-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0452-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0456-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0457-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-045B-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0461-1000-0000000FF1CE} /passive /quiet
 REM Office 2016 unused MUI #6
-MsiExec.exe /X{90160000-001F-0468-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-046A-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-046C-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-046E-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0470-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0481-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0487-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0488-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0491-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0804-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0814-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0816-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-081A-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-083C-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0845-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0C0A-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-0C1A-1000-0000000FF1CE} /passive
-MsiExec.exe /X{90160000-001F-141A-1000-0000000FF1CE} /passive
+MsiExec.exe /X{90160000-001F-0468-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-046A-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-046C-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-046E-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0470-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0481-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0487-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0488-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0491-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0804-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0814-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0816-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-081A-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-083C-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0845-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0C0A-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-0C1A-1000-0000000FF1CE} /passive /quiet
+MsiExec.exe /X{90160000-001F-141A-1000-0000000FF1CE} /passive /quiet
 
 
 REM Uninstall some of the Windows 10’s Built-in Apps
