@@ -98,6 +98,8 @@ reg import data\cleanmgr.reg >nul
 REM uncheck Defender, Temporal Files
 REM if task already exist skip cleanup
 cleanmgr /sagerun:1
+REM Does verylowdisk hide GUI??? (No on Win10)
+REM cleanmgr /sagerun:1 /verylowdisk
 
 REM REM remove driver backups (view: pnputil -e)
 REM for /l %%N in (1,1,30) do pnputil -d oem%%N.inf >nul
