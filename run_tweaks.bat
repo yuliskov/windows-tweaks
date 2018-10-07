@@ -14,6 +14,14 @@ data\elevate -c %0 ok
 exit
 :SKIP_ELEVATE
 
+
+REM Run script every monday and do check that script already runned at this day
+SET DAY=%DATE:~0,3%
+SET YYYYMMDD=%DATE:~10%%DATE:~4,2%%DATE:~7,2%
+IF NOT [%DAY%]==[Mon] EXIT
+IF [%DAY%]==[Mon] IF EXIST "%temp%\Lock_%YYYYMMDD%.lck" EXIT
+IF [%DAY%]==[Mon] IF NOT EXIST "%temp%\Lock_%YYYYMMDD%.lck" ECHO Script has run %YYYYMMDD% already>>"%temp%\Lock_%YYYYMMDD%.lck"
+
 echo Cleaning Temp...
 
 REM 'start' to use short path
