@@ -4,7 +4,7 @@ title Cleanup running. Do not close.
 
 cd /d "%~dp0"
 REM utf-8 encoding, support russian text
-chcp 65001
+chcp 65001 >nul
 
 
 REM Run this script with administrative privilegies
@@ -19,8 +19,11 @@ REM Run script every monday and do check that script already runned at this day
 SET DAY=%DATE:~0,3%
 SET YYYYMMDD=%DATE:~10%%DATE:~4,2%%DATE:~7,2%
 IF NOT [%DAY%]==[Mon] EXIT
-IF [%DAY%]==[Mon] IF EXIST "%temp%\Lock_%YYYYMMDD%.lck" EXIT
-IF [%DAY%]==[Mon] IF NOT EXIST "%temp%\Lock_%YYYYMMDD%.lck" ECHO Script has run %YYYYMMDD% already>>"%temp%\Lock_%YYYYMMDD%.lck"
+IF [%DAY%]==[Mon] IF EXIST "%userprofile%\Lock_%YYYYMMDD%.lck" EXIT
+IF [%DAY%]==[Mon] IF NOT EXIST "%userprofile%\Lock_%YYYYMMDD%.lck" (
+	del "%userprofile%\Lock_*.lck" 2>nul
+	ECHO Script has run %YYYYMMDD% already>>"%userprofile%\Lock_%YYYYMMDD%.lck"
+) 
 
 echo Cleaning Temp...
 
@@ -42,14 +45,16 @@ REM Example: schtasks /Create /TN "Cleanup Task" /SC WEEKLY /TR "\"%0\" task" /R
 
 REM workaround with absent option 'run task as soon as possible'
 REM NOTE: can't combine all params in one schtasks command
-schtasks /Create /TN "Cleanup Task" /xml "data/Cleanup Task.xml" /F
-schtasks /Change /TN "Cleanup Task" /TR "\"%0\" task" /RU Users /RL HIGHEST
+schtasks /Create /TN "Cleanup Task" /xml "data/Cleanup Task.xml" /F >nul
+schtasks /Change /TN "Cleanup Task" /TR "\"%0\" task" /RU Users /RL HIGHEST >nul
 REM ru fix: all default users and groups are localized on non-english locales
-schtasks /Change /TN "Cleanup Task" /TR "\"%0\" task" /RU Пользователи /RL HIGHEST
+schtasks /Change /TN "Cleanup Task" /TR "\"%0\" task" /RU Пользователи /RL HIGHEST 2>nul
 
-echo ====================
-echo Beginning cleanup...
-echo ====================
+pause
+
+echo ========================
+echo Beginning app cleanup...
+echo ========================
 
 REM close processes that interfere with cleanup tasks
 REM start /wait %NIRCMD% closeprocess chrome.exe
