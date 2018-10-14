@@ -25,8 +25,6 @@ IF [%DAY%]==[Mon] IF NOT EXIST "%userprofile%\Lock_%YYYYMMDD%.lck" (
 	ECHO Script has run %YYYYMMDD% already>>"%userprofile%\Lock_%YYYYMMDD%.lck"
 ) 
 
-echo Cleaning Temp...
-
 REM 'start' to use short path
 SET CCLEANER_DIR=%~dp0CCleaner
 SET CCLEANER=ccleaner64.exe
@@ -49,8 +47,6 @@ schtasks /Create /TN "Cleanup Task" /xml "data/Cleanup Task.xml" /F >nul
 schtasks /Change /TN "Cleanup Task" /TR "\"%0\" task" /RU Users /RL HIGHEST >nul
 REM ru fix: all default users and groups are localized on non-english locales
 schtasks /Change /TN "Cleanup Task" /TR "\"%0\" task" /RU Пользователи /RL HIGHEST 2>nul
-
-pause
 
 echo ========================
 echo Beginning app cleanup...
