@@ -1,5 +1,7 @@
 @echo off
 
+echo Running %~n0...
+
 cd /d "%~dp0"
 
 if "%1"=="ok" goto SKIP_ELEVATE
@@ -8,23 +10,7 @@ call :Elevate "%0" ok
 exit
 :SKIP_ELEVATE
 
-REM Import external utils here
-set HOSTS=..\data\hosts.exe
-
-for /F "usebackq tokens=*" %%A in ("telemetry-hosts.txt") do call :CheckAndAddHost %%A
-
-goto End
-
-:CheckAndAddHost
-	set THE_HOST=%*
-
-	if NOT "%THE_HOST%"=="%THE_HOST:#=%" (
-		echo Comment has been found... skipping...
-		goto :eof
-	) 
-
-	%HOSTS% set %THE_HOST% 0.0.0.0
-goto :eof
+goto ElevateEnd
 
 :Elevate
 	set COMMAND=%*
@@ -33,6 +19,12 @@ goto :eof
 	"%temp%\OEgetPrivileges.vbs"
 goto :eof
 
-:End
+:ElevateEnd
 
-pause
+REM ================================================================
+
+SET REGFILE_NAME=win10-tweaks.reg
+
+echo Applying registry tweaks...
+REM core tweaks
+reg import %REGFILE_NAME% >nul 2>nul

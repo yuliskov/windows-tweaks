@@ -1,5 +1,7 @@
 @echo off
 
+echo Running %~n0...
+
 set THIS_NAME=%~dpf0
 set BLANK_TASK=%temp%/blank_task.xml
 set MY_TASK_NAME="Reset Idea Trial"
@@ -7,16 +9,16 @@ set IDEA_PROFILE_DIR_TEMPLATE=%UserProfile%\.IntelliJIdea*
 for /d %%f in ("%IDEA_PROFILE_DIR_TEMPLATE%") do call :IdeaLicenseFix %%f
 REM comment line below in case you want only reset trial
 call :SetupTask
+
 goto End
 
 :IdeaLicenseFix
-	echo Processing %IDEA_PROFILE_DIR%...
 	set IDEA_PROFILE_DIR=%1
+	echo Processing %IDEA_PROFILE_DIR%...
     del "%IDEA_PROFILE_DIR%\config\eval" /q
 	type "%IDEA_PROFILE_DIR%\config\options\options.xml" | findstr /v evlsprt > "%IDEA_PROFILE_DIR%\config\options\options_new.xml"
 	copy "%IDEA_PROFILE_DIR%\config\options\options_new.xml" "%IDEA_PROFILE_DIR%\config\options\options.xml" /y >nul
 	reg delete "HKEY_CURRENT_USER\Software\JavaSoft\Prefs\jetbrains\idea" /f 2>nul
-	echo done
 goto :eof
 
 :Elevate
@@ -42,8 +44,6 @@ goto :eof
 
 	call :WriteBlankTask
 	call :Elevate %MY_TASK_COMMAND%
-	
-	echo done
 goto :eof
 
 REM we can't set from command line 'Run task as soon as possible'
