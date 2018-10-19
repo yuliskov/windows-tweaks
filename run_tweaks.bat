@@ -85,10 +85,10 @@ goto WINDOWS_END
 
 :WINDOWS_8_1
 :WINDOWS_8
+echo Windows 8 detected
 pushd win8-tweaks
 call win8-clean.bat
 popd
-echo Windows 8 detected
 goto WINDOWS_END
 
 :WINDOWS_7
