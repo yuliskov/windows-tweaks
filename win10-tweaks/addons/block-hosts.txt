@@ -12,6 +12,7 @@ practivate.adobe.com
 activate.adobe.com
 
 # Microsoft Telemetry Hosts
+# Source: https://github.com/W4RH4WK/Debloat-Windows-10
 184-86-53-99.deploy.static.akamaitechnologies.com
 a-0001.a-msedge.net
 a-0002.a-msedge.net
