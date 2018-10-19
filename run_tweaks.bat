@@ -14,6 +14,7 @@ data\elevate -c %0 ok
 exit
 :SKIP_ELEVATE
 
+if NOT "%1"=="task" goto SKIP_CHECKS
 
 REM Run script every monday and do check that script already runned at this day
 SET DAY=%DATE:~0,3%
@@ -23,7 +24,9 @@ IF [%DAY%]==[Mon] IF EXIST "%userprofile%\Lock_%YYYYMMDD%.lck" EXIT
 IF [%DAY%]==[Mon] IF NOT EXIST "%userprofile%\Lock_%YYYYMMDD%.lck" (
 	del "%userprofile%\Lock_*.lck" 2>nul
 	ECHO Script has run %YYYYMMDD% already>>"%userprofile%\Lock_%YYYYMMDD%.lck"
-) 
+)
+
+:SKIP_CHECKS
 
 REM 'start' to use short path
 SET CCLEANER_DIR=%~dp0CCleaner
