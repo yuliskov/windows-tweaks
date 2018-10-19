@@ -23,8 +23,8 @@ goto :eof
 
 REM ================================================================
 
-SET REGFILE_NAME=win10-tweaks.reg
+SET REGFILE_NAME=%~n0.reg
 
 echo Applying registry tweaks...
 REM core tweaks
-reg import %REGFILE_NAME% >nul 2>nul
+reg import "%REGFILE_NAME%" >nul 2>nul

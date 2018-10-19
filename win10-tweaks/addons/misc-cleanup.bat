@@ -43,9 +43,3 @@ del /a:- "%UserProfile%\Documents\desktop.ini" 2>nul
 del /a:- "%UserProfile%\Downloads\desktop.ini" 2>nul
 del /a:- "%ProgramFiles%\desktop.ini" 2>nul
 del /a:- "%ProgramFiles(x86)%\desktop.ini" 2>nul
-
-REM SublimeText2
-set HOSTS=..\data\hosts.exe
-%HOSTS% set license.sublimehq.com 0.0.0.0 >nul
-%HOSTS% set 45.55.255.55 0.0.0.0 >nul
-%HOSTS% set 45.55.41.223 0.0.0.0 >nul

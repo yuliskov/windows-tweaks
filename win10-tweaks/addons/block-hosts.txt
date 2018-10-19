@@ -1,4 +1,17 @@
-#Microsoft
+# SublimeText2 license hosts
+license.sublimehq.com
+45.55.255.55
+45.55.41.223
+
+# Adobe license hosts
+lmlicenses.wip4.adobe.com
+lm.licenses.adobe.com
+na1r.services.adobe.com
+hlrcv.stage.adobe.com
+practivate.adobe.com
+activate.adobe.com
+
+# Microsoft Telemetry Hosts
 184-86-53-99.deploy.static.akamaitechnologies.com
 a-0001.a-msedge.net
 a-0002.a-msedge.net
@@ -156,7 +169,6 @@ pagead46.l.doubleclick.net
 hubspot.net.edgekey.net
 insiderppe.cloudapp.net # Feedback-Hub
 livetileedge.dsx.mp.microsoft.com
-
 
 # extra
 fe2.update.microsoft.com.akadns.net

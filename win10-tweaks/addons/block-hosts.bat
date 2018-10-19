@@ -25,8 +25,9 @@ REM ================================================================
 
 REM Import external utils here
 set HOSTS=..\data\hosts.exe
+set HOSTS_FILE=%~n0.txt
 
-for /F "usebackq tokens=*" %%A in ("telemetry-hosts.txt") do call :CheckAndAddHost %%A
+for /F "usebackq tokens=*" %%A in ("%HOSTS_FILE%") do call :CheckAndAddHost %%A
 
 goto End
 
