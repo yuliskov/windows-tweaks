@@ -51,9 +51,9 @@ schtasks /Change /TN "Cleanup Task" /TR "\"%0\" task" /RU Users /RL HIGHEST >nul
 REM ru fix: all default users and groups are localized on non-english locales
 schtasks /Change /TN "Cleanup Task" /TR "\"%0\" task" /RU Пользователи /RL HIGHEST 2>nul
 
-echo ========================
-echo Beginning app cleanup...
-echo ========================
+echo =========================
+echo Beginning junk cleanup...
+echo =========================
 
 REM close processes that interfere with cleanup tasks
 REM start /wait %NIRCMD% closeprocess chrome.exe
