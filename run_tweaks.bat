@@ -14,19 +14,21 @@ data\elevate -c %0 ok
 exit
 :SKIP_ELEVATE
 
-if NOT "%1"=="task" goto SKIP_CHECKS
+REM In order to make checks invisible code below has been moved to the bootstrap.vbs
 
-REM Run script every monday and do check that script already runned at this day
-SET DAY=%DATE:~0,3%
-SET YYYYMMDD=%DATE:~10%%DATE:~4,2%%DATE:~7,2%
-IF NOT [%DAY%]==[Mon] EXIT
-IF [%DAY%]==[Mon] IF EXIST "%userprofile%\Lock_%YYYYMMDD%.lck" EXIT
-IF [%DAY%]==[Mon] IF NOT EXIST "%userprofile%\Lock_%YYYYMMDD%.lck" (
-	del "%userprofile%\Lock_*.lck" 2>nul
-	ECHO Script has run %YYYYMMDD% already>>"%userprofile%\Lock_%YYYYMMDD%.lck"
-)
+REM if NOT "%1"=="task" goto SKIP_CHECKS
 
-:SKIP_CHECKS
+REM REM Run script every monday and do check that script already runned at this day
+REM SET DAY=%DATE:~0,3%
+REM SET YYYYMMDD=%DATE:~10%%DATE:~4,2%%DATE:~7,2%
+REM IF NOT [%DAY%]==[Mon] EXIT
+REM IF [%DAY%]==[Mon] IF EXIST "%userprofile%\Lock_%YYYYMMDD%.lck" EXIT
+REM IF [%DAY%]==[Mon] IF NOT EXIST "%userprofile%\Lock_%YYYYMMDD%.lck" (
+REM 	del "%userprofile%\Lock_*.lck" 2>nul
+REM 	ECHO Script has run %YYYYMMDD% already>>"%userprofile%\Lock_%YYYYMMDD%.lck"
+REM )
+
+REM :SKIP_CHECKS
 
 REM 'start' to use short path
 SET CCLEANER_DIR=%~dp0CCleaner
@@ -47,9 +49,11 @@ REM Example: schtasks /Create /TN "Cleanup Task" /SC WEEKLY /TR "\"%0\" task" /R
 REM workaround with absent option 'run task as soon as possible'
 REM NOTE: can't combine all params in one schtasks command
 schtasks /Create /TN "Cleanup Task" /xml "data/Cleanup Task.xml" /F >nul
-schtasks /Change /TN "Cleanup Task" /TR "\"%0\" task" /RU Users /RL HIGHEST >nul
+SET OLD_TASK_COMMAND=\"%0\" task
+SET TASK_COMMAND=wscript.exe \"%~dp0data\bootstrap.vbs\" \"%0\" task
+schtasks /Change /TN "Cleanup Task" /TR "%TASK_COMMAND%" /RU Users /RL HIGHEST >nul
 REM ru fix: all default users and groups are localized on non-english locales
-schtasks /Change /TN "Cleanup Task" /TR "\"%0\" task" /RU Пользователи /RL HIGHEST 2>nul
+schtasks /Change /TN "Cleanup Task" /TR "%TASK_COMMAND%" /RU Пользователи /RL HIGHEST 2>nul
 
 echo =========================
 echo Beginning junk cleanup...
