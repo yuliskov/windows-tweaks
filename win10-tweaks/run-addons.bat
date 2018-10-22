@@ -36,5 +36,3 @@ set CORE_TEMPLATE=core\*.bat
 pushd "%CD%"
 for /r %%f in ("%CORE_TEMPLATE%") do call "%%f" ok
 popd
-
-pause

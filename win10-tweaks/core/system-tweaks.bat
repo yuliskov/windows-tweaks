@@ -46,3 +46,4 @@ reg query "%REG%" /v AutoAdminLogon | findstr 0 >nul && netplwiz
 
 REM Clean Up the WinSxS Folder
 DISM /Online /Cleanup-Image /StartComponentCleanup
+
