@@ -10,7 +10,7 @@ set IDEA_PROFILE_DIR_TEMPLATE=%UserProfile%\.IntelliJIdea*
 if "%1"=="ok" goto ENABLE_CHECK
 goto SKIP_CHECK
 :ENABLE_CHECK
-REM comment lines below if you want to force reset
+REM seems running from the global script... do the checks before....
 schtasks /query /TN %MY_TASK_NAME% >NUL 2>&1
 if %errorlevel% EQU 0 (
 	echo Idea reset task already created... exiting...
