@@ -31,11 +31,11 @@ rmdir /s /q "%SystemDrive%\_acestream_cache_" 2>nul
 REM rmdir /s /q "%ProgramFiles%\NVIDIA Corporation\Installer2"
 
 REM fix: chrome didn't shutdown correctly
-del "%LocalAppData%\Google\*.tmp" /s >nul 2>nul
+del "%LocalAppData%\Google\*.tmp" /s 2>nul
 
 REM common location for Chome's downloaded files
-del "%UserProfile%\Downloads\*.torrent" >nul 2>nul
-del "%UserProfile%\Documents\*.torrent" >nul 2>nul
+del "%UserProfile%\Downloads\*.torrent" 2>nul
+del "%UserProfile%\Documents\*.torrent" 2>nul
 
 REM hidden files
 del /a:- "%UserProfile%\Desktop\desktop.ini" 2>nul
@@ -43,3 +43,9 @@ del /a:- "%UserProfile%\Documents\desktop.ini" 2>nul
 del /a:- "%UserProfile%\Downloads\desktop.ini" 2>nul
 del /a:- "%ProgramFiles%\desktop.ini" 2>nul
 del /a:- "%ProgramFiles(x86)%\desktop.ini" 2>nul
+
+REM IntelliJ crash dump (~1GB)
+del "%UserProfile%\java_error_in_idea.hprof" 2>nul
+
+REM PowerISO WinPE image (~1.5GB)
+rmdir /s /q "%AppData%\PowerISO\PE Files" 2>nul

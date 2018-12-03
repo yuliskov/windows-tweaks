@@ -6,6 +6,14 @@ set THIS_NAME=%~dpf0
 set BLANK_TASK=%temp%/blank_task.xml
 set MY_TASK_NAME="Reset Idea Trial"
 set IDEA_PROFILE_DIR_TEMPLATE=%UserProfile%\.IntelliJIdea*
+
+REM comment lines below if you want to force reset
+schtasks /query /TN %MY_TASK_NAME% >NUL 2>&1
+if %errorlevel% EQU 0 (
+	echo Idea reset task already created... exiting...
+	goto End
+)
+
 for /d %%f in ("%IDEA_PROFILE_DIR_TEMPLATE%") do call :IdeaLicenseFix %%f
 REM comment line below in case you want only reset trial
 call :SetupTask
@@ -31,16 +39,7 @@ goto :eof
 :SetupTask
 	echo Setting up scheduled task...
 	REM run task every 25 days (MO) on this user account (IT)
-	REM set MY_TASK_COMMAND=schtasks /Create /TN "%MY_TASK_NAME%" /SC DAILY /MO 25 /IT /TR ""%THIS_NAME%"" /RL HIGHEST /F
 	set MY_TASK_COMMAND=schtasks /Create /TN "%MY_TASK_NAME%" /xml ""%BLANK_TASK%"" /F
-	REM set MY_TASK_EDIT_COMMAND=schtasks /Change /TN "%MY_TASK_NAME%" /SC DAILY /MO 24 /IT /TR ""%THIS_NAME%"" /RL HIGHEST /F
-	
-	REM schtasks /query /TN %MY_TASK_NAME% >NUL 2>&1
-	REM if %errorlevel% NEQ 0 (
-	REM 	call :WriteBlankTask
-	REM 	call :Elevate %MY_TASK_COMMAND%
-	REM 	REM call :Elevate %MY_TASK_EDIT_COMMAND%
-	REM )
 
 	call :WriteBlankTask
 	call :Elevate %MY_TASK_COMMAND%

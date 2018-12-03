@@ -1,3 +1,6 @@
+# Freemake Video Converter license host
+fvc_stat.freemake.com
+
 # SublimeText2 license hosts
 license.sublimehq.com
 45.55.255.55

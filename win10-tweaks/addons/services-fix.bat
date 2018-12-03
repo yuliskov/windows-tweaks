@@ -99,6 +99,14 @@ REM Intel content protection service
 sc config cphs start=demand >nul
 sc stop cphs >nul
 
+REM Windows Remediation Service (Update help service)
+sc config sedsvc start=demand >nul
+sc stop sedsvc >nul
+
+REM Freemake Video Converter service
+sc config FreemakeVideoCapture start=demand >nul
+sc stop FreemakeVideoCapture >nul
+
 REM REM Connected Devices Platform Service (Auto-Delayed)
 REM sc config CDPSvc start=demand >nul
 REM sc stop CDPSvc >nul
