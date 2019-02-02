@@ -30,11 +30,25 @@ goto End
 
     del "%IDEA_PROFILE_DIR%\config\eval" /q
 
-	type "%IDEA_PROFILE_DIR%\config\options\options.xml" | findstr /v evlsprt > "%IDEA_PROFILE_DIR%\config\options\options_new.xml"
-	copy "%IDEA_PROFILE_DIR%\config\options\options_new.xml" "%IDEA_PROFILE_DIR%\config\options\options.xml" /y >nul
+    set OPTIONS=%IDEA_PROFILE_DIR%\config\options\options.xml
+    set OPTIONS_NEW=%IDEA_PROFILE_DIR%\config\options\options_new.xml
 
-	type "%IDEA_PROFILE_DIR%\config\options\other.xml" | findstr /v evlsprt > "%IDEA_PROFILE_DIR%\config\options\other_new.xml"
-	copy "%IDEA_PROFILE_DIR%\config\options\other_new.xml" "%IDEA_PROFILE_DIR%\config\options\other.xml" /y >nul
+    set OTHER=%IDEA_PROFILE_DIR%\config\options\other.xml
+    set OTHER_NEW=%IDEA_PROFILE_DIR%\config\options\other_new.xml
+
+    if not exist "%OPTIONS%" goto SKIP_OPTIONS
+
+	type "%OPTIONS%" | findstr /v evlsprt > "%OPTIONS_NEW%"
+	copy "%OPTIONS_NEW%" "%OPTIONS%" /y >nul
+
+	:SKIP_OPTIONS
+
+	if not exist "%OTHER%" goto SKIP_OTHER
+
+	type "%OTHER%" | findstr /v evlsprt > "%OTHER_NEW%"
+	copy "%OTHER_NEW%" "%OTHER%" /y >nul
+
+	:SKIP_OTHER
 
 	reg delete "HKEY_CURRENT_USER\Software\JavaSoft\Prefs\jetbrains\idea" /f >nul 2>nul
 goto :eof
