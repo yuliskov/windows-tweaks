@@ -27,9 +27,15 @@ goto End
 :IdeaLicenseFix
 	set IDEA_PROFILE_DIR=%1
 	echo Processing %IDEA_PROFILE_DIR%...
+
     del "%IDEA_PROFILE_DIR%\config\eval" /q
+
 	type "%IDEA_PROFILE_DIR%\config\options\options.xml" | findstr /v evlsprt > "%IDEA_PROFILE_DIR%\config\options\options_new.xml"
 	copy "%IDEA_PROFILE_DIR%\config\options\options_new.xml" "%IDEA_PROFILE_DIR%\config\options\options.xml" /y >nul
+
+	type "%IDEA_PROFILE_DIR%\config\options\other.xml" | findstr /v evlsprt > "%IDEA_PROFILE_DIR%\config\options\other_new.xml"
+	copy "%IDEA_PROFILE_DIR%\config\options\other_new.xml" "%IDEA_PROFILE_DIR%\config\options\other.xml" /y >nul
+
 	reg delete "HKEY_CURRENT_USER\Software\JavaSoft\Prefs\jetbrains\idea" /f >nul 2>nul
 goto :eof
 

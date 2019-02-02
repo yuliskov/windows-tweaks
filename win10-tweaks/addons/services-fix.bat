@@ -47,9 +47,13 @@ sc stop TrkWks >nul
 
 REM Unwanted Windows services (END)
 
-REM Google
-sc config gupdate start=demand >nul
+REM Google Chrome update
+sc config gupdate start=disabled >nul
 sc stop gupdate >nul
+
+REM Google Chrome update
+sc config gupdatem start=disabled >nul
+sc stop gupdatem >nul
 
 REM Nvidia
 sc config nvUpdatusService start=demand >nul
