@@ -44,8 +44,14 @@ del /a:- "%UserProfile%\Downloads\desktop.ini" 2>nul
 del /a:- "%ProgramFiles%\desktop.ini" 2>nul
 del /a:- "%ProgramFiles(x86)%\desktop.ini" 2>nul
 
+REM PowerISO WinPE image (~1.5GB)
+rmdir /s /q "%AppData%\PowerISO\PE Files" 2>nul
+
 REM IntelliJ crash dump (~1GB)
 del "%UserProfile%\java_error_in_idea.hprof" 2>nul
 
-REM PowerISO WinPE image (~1.5GB)
-rmdir /s /q "%AppData%\PowerISO\PE Files" 2>nul
+REM Android SDK cleanup
+rmdir /s /q "%UserProfile%\.gradle\caches" 2>nul
+rmdir /s /q "%UserProfile%\.gradle\daemon" 2>nul
+REM remove all gradle wrapper dists:
+REM rmdir /s /q "%UserProfile%\.gradle\wrapper" 2>nul

@@ -36,6 +36,10 @@ a.ads1.msn.com
 a.ads2.msads.net
 a.ads2.msn.com
 ac3.msn.com
+# may cause issues with Windows Updates
+sls.update.microsoft.com
+sls.update.microsoft.com.nsatc.net
+sls.update.microsoft.com.akadns.net
 ad.doubleclick.net
 adnexus.net
 adnxs.com
@@ -106,8 +110,6 @@ secure.flashtalking.com
 services.wes.df.telemetry.microsoft.com
 settings-sandbox.data.microsoft.com
 settings-win.data.microsoft.com
-sls.update.microsoft.com.akadns.net
-sls.update.microsoft.com.nsatc.net
 sqm.df.telemetry.microsoft.com
 sqm.telemetry.microsoft.com
 sqm.telemetry.microsoft.com.nsatc.net
@@ -140,9 +142,12 @@ www.bingads.microsoft.com
 www.go.microsoft.akadns.net
 www.msftncsi.com
 client.wns.windows.com
-wdcp.microsoft.com
-dns.msftncsi.com
-storeedgefd.dsx.mp.microsoft.com
+# may cause issues with Windows Defender Cloud-based protection
+#wdcp.microsoft.com
+# This causes Windows to think it doesn't have internet
+#dns.msftncsi.com
+# breaks Windows Store
+#storeedgefd.dsx.mp.microsoft.com
 wdcpalt.microsoft.com
 settings-ssl.xboxlive.com
 settings-ssl.xboxlive.com-c.edgekey.net
@@ -152,7 +157,6 @@ insiderservice.microsoft.com
 insiderservice.trafficmanager.net
 e3843.g.akamaiedge.net
 flightingserviceweurope.cloudapp.net
-sls.update.microsoft.com
 static.ads-twitter.com
 www-google-analytics.l.google.com
 p.static.ads-twitter.com
@@ -171,7 +175,8 @@ adservice.google.com
 googleads.g.doubleclick.net
 pagead46.l.doubleclick.net
 hubspot.net.edgekey.net
-insiderppe.cloudapp.net # Feedback-Hub
+# Feedback-Hub
+insiderppe.cloudapp.net
 livetileedge.dsx.mp.microsoft.com
 
 # extra
@@ -190,7 +195,8 @@ m.hotmail.com
 # can cause issues with Skype (#79)
 apps.skype.com
 c.msn.com
-login.live.com
+# prevents login to outlook and other live apps
+#login.live.com
 pricelist.skype.com
 s.gateway.messenger.live.com
 ui.skype.com

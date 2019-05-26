@@ -111,6 +111,10 @@ REM Freemake Video Converter service
 sc config FreemakeVideoCapture start=demand >nul
 sc stop FreemakeVideoCapture >nul
 
+REM Windows Remediation Service
+sc config sedsvc start=demand >nul
+sc stop sedsvc >nul
+
 REM REM Connected Devices Platform Service (Auto-Delayed)
 REM sc config CDPSvc start=demand >nul
 REM sc stop CDPSvc >nul
