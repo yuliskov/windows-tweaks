@@ -46,14 +46,14 @@ SET NIRCMD=%NIRCMD_DIR%\%NIRCMD%
 REM Valid schedule types: MINUTE, HOURLY, DAILY, WEEKLY, MONTHLY, ONCE, ONSTART, ONLOGON, ONIDLE, ONEVENT.
 REM Example: schtasks /Create /TN "Cleanup Task" /SC WEEKLY /TR "\"%0\" task" /RL HIGHEST /F
 
-REM workaround with absent option 'run task as soon as possible'
-REM NOTE: can't combine all params in one schtasks command
-schtasks /Create /TN "Cleanup Task" /xml "data/Cleanup Task.xml" /F >nul
-SET OLD_TASK_COMMAND=\"%0\" task
-SET TASK_COMMAND=wscript.exe \"%~dp0data\bootstrap.vbs\" \"%0\" task
-schtasks /Change /TN "Cleanup Task" /TR "%TASK_COMMAND%" /RU Users /RL HIGHEST >nul
-REM ru fix: all default users and groups are localized on non-english locales
-schtasks /Change /TN "Cleanup Task" /TR "%TASK_COMMAND%" /RU Пользователи /RL HIGHEST 2>nul
+REM REM workaround with absent option 'run task as soon as possible'
+REM REM NOTE: can't combine all params in one schtasks command
+REM schtasks /Create /TN "Cleanup Task" /xml "data/Cleanup Task.xml" /F >nul
+REM SET OLD_TASK_COMMAND=\"%0\" task
+REM SET TASK_COMMAND=wscript.exe \"%~dp0data\bootstrap.vbs\" \"%0\" task
+REM schtasks /Change /TN "Cleanup Task" /TR "%TASK_COMMAND%" /RU Users /RL HIGHEST >nul
+REM REM ru fix: all default users and groups are localized on non-english locales
+REM schtasks /Change /TN "Cleanup Task" /TR "%TASK_COMMAND%" /RU Пользователи /RL HIGHEST 2>nul
 
 echo =========================
 echo Beginning junk cleanup...

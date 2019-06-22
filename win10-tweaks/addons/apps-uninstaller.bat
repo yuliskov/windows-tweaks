@@ -197,6 +197,9 @@ powershell -Command "Get-AppxPackage *windowsmaps* | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage *windowscommunicationsapps* | Remove-AppxPackage"
 REM Mixed Reality Portal (error when trying to uninstall)
 REM powershell -Command "Get-AppxPackage *holographic* | Remove-AppxPackage"
+REM Mixed Reality First Run (shown in Start Menu as ms-resource:AppName/Text)
+REM More info: https://winaero.com/blog/uninstall-mixed-reality-portal-windows-10/
+REM powershell -Command "Get-AppxPackage *holographicfirstrun* | Remove-AppxPackage"
 REM SMS app
 powershell -Command "Get-AppxPackage *messaging* | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage *xboxidentity* | Remove-AppxPackage"

@@ -1,3 +1,5 @@
+REM TODO: run at logon every 24 days
+
 @echo off
 
 echo Running %~n0...
@@ -76,7 +78,7 @@ REM do reset every 24th day
 	echo ^<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task"^>^ >> "%BLANK_TASK%"
 	echo ^<Triggers^>^ >> "%BLANK_TASK%"
 	echo ^<CalendarTrigger^>^ >> "%BLANK_TASK%"
-	echo ^<StartBoundary^>1970-01-01T20:00:00^</StartBoundary^>^ >> "%BLANK_TASK%"
+	echo ^<StartBoundary^>1970-01-01T08:00:00^</StartBoundary^>^ >> "%BLANK_TASK%"
 	echo ^<Enabled^>true^</Enabled^>^ >> "%BLANK_TASK%"
 	echo ^<ScheduleByDay^>^ >> "%BLANK_TASK%"
 	echo ^<DaysInterval^>24^</DaysInterval^>^ >> "%BLANK_TASK%"
