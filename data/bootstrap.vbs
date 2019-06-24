@@ -1,3 +1,5 @@
+SetLocale("en-us") REM enable constant date formatting
+
 Set fso = CreateObject("Scripting.FileSystemObject")
 Set shell = CreateObject("WScript.Shell")
 
@@ -8,11 +10,13 @@ thisDate = Year(Now) & Month(Now) & Day(Now)
 lockFile = shell.ExpandEnvironmentStrings("%UserProfile%") & "\Lock_" & thisDate & ".lck"
 lockFileTemplate = shell.ExpandEnvironmentStrings("%UserProfile%") & "\Lock_*.lck"
 
-REM Wscript.Echo lockFileTemplate
+REM Wscript.Echo lockFile
 
 ' Run script every monday and do check that script already runned at this day
 If Weekday(Date) = vbMonday And Not fso.FileExists(lockFile) Then
-    REM cleanup previous runs
+    REM Wscript.Echo "Running"
+
+    REM cleanup
     On error resume next
     fso.DeleteFile lockFileTemplate, True
 
