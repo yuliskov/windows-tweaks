@@ -21,6 +21,8 @@ goto :eof
 
 :ElevateEnd
 
+set PS=call ..\data\ps
+
 REM ================================================================
 
 REM Uninstall registry paths:
@@ -184,24 +186,24 @@ REM You can easily reinstall them with this command:
 REM Get-AppxPackage -AllUsers| Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
 REM More info: https://github.com/W4RH4WK/Debloat-Windows-10
 REM list packages: Get-AppxPackage -AllUsers | out-string -stream | select-string "^Name"
-powershell -Command "Get-AppxPackage *zunemusic* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *bingsports* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *xboxapp* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *3dbuilder* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *officehub* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *solitairecollection* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *windowsphone* | Remove-AppxPackage"
+%PS% -Command "Get-AppxPackage *zunemusic* | Remove-AppxPackage"
+%PS% -Command "Get-AppxPackage *bingsports* | Remove-AppxPackage"
+%PS% -Command "Get-AppxPackage *xboxapp* | Remove-AppxPackage"
+%PS% -Command "Get-AppxPackage *3dbuilder* | Remove-AppxPackage"
+%PS% -Command "Get-AppxPackage *officehub* | Remove-AppxPackage"
+%PS% -Command "Get-AppxPackage *solitairecollection* | Remove-AppxPackage"
+%PS% -Command "Get-AppxPackage *windowsphone* | Remove-AppxPackage"
 REM not enough permission
-REM powershell -Command "Get-AppxPackage *people* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *windowsmaps* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *windowscommunicationsapps* | Remove-AppxPackage"
+REM %PS% -Command "Get-AppxPackage *people* | Remove-AppxPackage"
+%PS% -Command "Get-AppxPackage *windowsmaps* | Remove-AppxPackage"
+%PS% -Command "Get-AppxPackage *windowscommunicationsapps* | Remove-AppxPackage"
 REM Mixed Reality Portal (error when trying to uninstall)
-REM powershell -Command "Get-AppxPackage *holographic* | Remove-AppxPackage"
+REM %PS% -Command "Get-AppxPackage *holographic* | Remove-AppxPackage"
 REM Mixed Reality First Run (shown in Start Menu as ms-resource:AppName/Text)
 REM More info: https://winaero.com/blog/uninstall-mixed-reality-portal-windows-10/
-REM powershell -Command "Get-AppxPackage *holographicfirstrun* | Remove-AppxPackage"
+REM %PS% -Command "Get-AppxPackage *holographicfirstrun* | Remove-AppxPackage"
 REM SMS app
-powershell -Command "Get-AppxPackage *messaging* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *xboxidentity* | Remove-AppxPackage"
+%PS% -Command "Get-AppxPackage *messaging* | Remove-AppxPackage"
+%PS% -Command "Get-AppxPackage *xboxidentity* | Remove-AppxPackage"
 REM Microsoft Phone app (do call, answer, etc)
-powershell -Command "Get-AppxPackage *commsphone* | Remove-AppxPackage"
+%PS% -Command "Get-AppxPackage *commsphone* | Remove-AppxPackage"
