@@ -23,135 +23,40 @@ goto :eof
 
 REM ================================================================
 
-REM Start/Stop unwanted services
-
 REM Unwanted Windows services (BEGIN)
 REM Details: https://github.com/W4RH4WK/Debloat-Windows-10/blob/master/scripts/disable-services.ps1
 
-REM ============ Disabled Services ================
+REM Import external utils here
+set SERVICES_DISABLED=%~n0-disabled.txt
+set SERVICES_MANUAL=%~n0-manual.txt
 
-REM Connected User Experiences and Telemetry
-sc config dmwappushservice start=disabled >nul
-sc stop dmwappushservice >nul
+for /F "usebackq tokens=*" %%A in ("%SERVICES_DISABLED%") do call :SetServicesDisabled %%A
+for /F "usebackq tokens=*" %%A in ("%SERVICES_MANUAL%") do call :SetServicesManual %%A
 
-REM Diagnostics Tracking Service
-sc config DiagTrack start=disabled >nul
-sc stop DiagTrack >nul
+goto End
 
-REM Microsoft (R) Diagnostics Hub Standard Collector Service
-REM HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service
-sc config diagnosticshub.standardcollector.service start=disabled >nul
-sc stop diagnosticshub.standardcollector.service >nul
+:SetServicesManual
+	set THE_LINE=%*
 
-REM Distributed Link Tracking Client (update link to file when one moved)
-sc config TrkWks start=disabled >nul
-sc stop TrkWks >nul
+	if NOT "%THE_LINE%"=="%THE_LINE:#=%" (
+		REM Comment has been found... skipping...
+		goto :eof
+	) 
 
-REM Windows Remediation Service (Update help service)
-sc config sedsvc start=disabled >nul
-sc stop sedsvc >nul
+	sc config "%THE_LINE%" start=demand >nul
+	sc stop "%THE_LINE%" >nul
+goto :eof
 
-REM Program Compatability Assistent
-sc config PcaSvc start=disabled >nul
-sc stop PcaSvc >nul
+:SetServicesDisabled
+	set THE_LINE=%*
 
-REM Google Chrome update
-sc config gupdate start=disabled >nul
-sc stop gupdate >nul
+	if NOT "%THE_LINE%"=="%THE_LINE:#=%" (
+		REM Comment has been found... skipping...
+		goto :eof
+	) 
 
-REM Google Chrome update
-sc config gupdatem start=disabled >nul
-sc stop gupdatem >nul
+	sc config "%THE_LINE%" start=disabled >nul
+	sc stop "%THE_LINE%" >nul
+goto :eof
 
-REM Windows 10: Fix Event 7031 System Control Manager
-sc config "OneSyncSvc" start=disabled >nul
-sc stop "OneSyncSvc" >nul
-
-REM Windows 10: Fix Event 7031 System Control Manager
-sc config "OneSyncSvc_470c3" start=disabled >nul
-sc stop "OneSyncSvc_470c3" >nul
-
-REM Adobe Autoupdate
-sc config AdobeUpdateService start=disabled >nul
-sc stop AdobeUpdateService >nul
-
-REM Adobe Genuine Integrity Service
-sc config "AGSService" start=disabled >nul
-sc stop "AGSService" >nul
-
-REM ========= End Disabled Services ===============
-
-REM ======== Set to Manual Services ===============
-
-REM Nvidia
-sc config nvUpdatusService start=demand >nul
-sc stop nvUpdatusService >nul
-
-REM Nvidia
-sc config nvsvc start=demand >nul
-sc stop nvsvc >nul
-
-REM Skype Update Service
-sc config SkypeUpdate start=demand >nul
-sc stop SkypeUpdate >nul
-
-REM HP LaserJet Print
-sc config "Net Driver HPZ12" start=demand >nul
-sc stop "Net Driver HPZ12" >nul
-
-REM HP LaserJet Print
-sc config "Pml Driver HPZ12" start=demand >nul
-sc stop "Pml Driver HPZ12" >nul
-
-REM Punk Buster game service
-sc config PnkBstrA start=demand >nul
-sc stop PnkBstrA >nul
-
-REM Intel content protection service
-sc config cphs start=demand >nul
-sc stop cphs >nul
-
-REM Freemake Video Converter service
-sc config FreemakeVideoCapture start=demand >nul
-sc stop FreemakeVideoCapture >nul
-
-REM ====== End Set to Manual Services =============
-
-REM REM Connected Devices Platform Service (Auto-Delayed)
-REM sc config CDPSvc start=demand >nul
-REM sc stop CDPSvc >nul
-
-REM REM Connected Devices Platform User Service_30c79 (Auto) DISABLE NOT WORK
-REM sc config CDPUserSvc_30c79 start=demand >nul
-REM sc stop CDPUserSvc_30c79 >nul
-
-REM REM Windows Push Notifications System Service (Auto)
-REM sc config WpnService start=demand >nul
-REM sc stop WpnService >nul
-
-REM REM Windows Push Notifications User Service_30c79 (Auto) DISABLE NOT WORK
-REM sc config WpnUserService_30c79 start=demand >nul
-REM sc stop WpnUserService_30c79 >nul
-
-REM REM Superfetch Service (background caching, increase RAM usage)
-REM REM Optimize Windows 10: https://www.tenforums.com/tutorials/26120-optimize-performance-windows-10-a.html
-REM sc config SysMain start=demand >nul
-REM sc stop SysMain >nul
-
-REM Search Indexing Service
-REM sc config WSearch start=demand >nul
-REM sc stop WSearch >nul
-
-REM REM Offline Files
-REM sc config CscService start=demand >nul
-REM sc stop CscService >nul
-
-REM REM Touch Keyboard and Handwriting Panel Service (acitve when device attached)
-REM sc config TabletInputService start=demand >nul
-REM sc stop TabletInputService >nul
-
-REM REM Font Cache Service
-REM sc config FontCache start=demand >nul
-REM sc stop FontCache >nul
-
-REM End Services
+:End

@@ -1,0 +1,28 @@
+# COM server for VBOX API
+VBoxSDS
+# WPS font cache
+FontCache3.0.0.0
+# Connected User Experiences and Telemetry
+dmwappushservice
+# Diagnostics Tracking Service
+DiagTrack
+# Microsoft (R) Diagnostics Hub Standard Collector Service
+diagnosticshub.standardcollector.service
+# Distributed Link Tracking Client (update link to file when one moved)
+TrkWks
+# Windows Remediation Service (Update help service)
+sedsvc
+# Program Compatability Assistent
+PcaSvc
+# Google Chrome update
+gupdate
+gupdatem
+# OneDrive: Fix Event 7031 System Control Manager
+OneSyncSvc
+OneSyncSvc_470c3
+# Adobe Autoupdate
+AdobeUpdateService
+# Adobe Genuine Integrity Service
+AGSService
+
+
