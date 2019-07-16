@@ -22,10 +22,10 @@ REM Run script every monday and do check that script already runned at this day
 SET DAY=%DATE:~0,3%
 SET YYYYMMDD=%DATE:~10%%DATE:~4,2%%DATE:~7,2%
 IF NOT [%DAY%]==[Mon] EXIT
-IF [%DAY%]==[Mon] IF EXIST "%userprofile%\Lock_%YYYYMMDD%.lck" EXIT
-IF [%DAY%]==[Mon] IF NOT EXIST "%userprofile%\Lock_%YYYYMMDD%.lck" (
-	del "%userprofile%\Lock_*.lck" 2>nul
-	ECHO Script has run %YYYYMMDD% already>>"%userprofile%\Lock_%YYYYMMDD%.lck"
+IF [%DAY%]==[Mon] IF EXIST "%AppData%\Lock_%YYYYMMDD%.lck" EXIT
+IF [%DAY%]==[Mon] IF NOT EXIST "%AppData%\Lock_%YYYYMMDD%.lck" (
+	del "%AppData%\Lock_*.lck" 2>nul
+	ECHO Script has run %YYYYMMDD% already>>"%AppData%\Lock_%YYYYMMDD%.lck"
 )
 
 :SKIP_CHECKS

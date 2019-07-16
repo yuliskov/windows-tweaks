@@ -21,6 +21,7 @@ goto :eof
 
 :ElevateEnd
 
+REM Powershell wrapper. Purpose: font fix
 set PS=call ..\data\ps
 
 REM ================================================================
