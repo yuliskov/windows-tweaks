@@ -28,7 +28,8 @@ REM schtasks /Delete /TN "\Microsoft Office 15 Sync Maintenance for %ComputerNam
 schtasks /Change /DISABLE /TN "\Microsoft Office 15 Sync Maintenance for %ComputerName%-%UserName% %ComputerName%" >nul 2>nul
 schtasks /Change /DISABLE /TN "\Microsoft\Office\Office 15 Subscription Heartbeat" >nul 2>nul
 taskkill /im msosync.exe /f 2>nul
-REM Adone CS6 task
+
+REM Adobe (example: \AdobeAAMUpdater-1.0-DESKTOP-G03L3IK-UserName)
 schtasks /Delete /TN "\AdobeAAMUpdater-1.0-%ComputerName%-%UserName%" /F 2>nul
 
 REM REM cause number of DistributedCOM errors in event log?
@@ -47,4 +48,10 @@ REM schtasks /Change /DISABLE /TN "\Microsoft\Windows\Customer Experience Improv
 REM schtasks /Change /DISABLE /TN "\Microsoft\Windows\Wininet\CacheTask" >nul
 
 REM OneDrive update task
-schtasks /Change /DISABLE /TN "\OneDrive Standalone Update Task v2" >nul
+schtasks /Change /DISABLE /TN "\OneDrive Standalone Update Task v2" >nul 2>nul
+
+REM Misc
+schtasks /Change /DISABLE /TN "\Microsoft\Windows\Windows Media Sharing\UpdateLibrary" >nul 2>nul
+schtasks /Change /DISABLE /TN "\Microsoft\Windows\HelloFace\FODCleanupTask" >nul 2>nul
+schtasks /Change /DISABLE /TN "\Microsoft\Windows\Feedback\Siuf\DmClient" >nul 2>nul
+schtasks /Change /DISABLE /TN "\CCleaner Update" >nul 2>nul

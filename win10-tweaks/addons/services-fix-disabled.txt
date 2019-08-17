@@ -1,7 +1,35 @@
-# COM server for VBOX API
-VBoxSDS
-# WPS font cache
-FontCache3.0.0.0
+# Web Account Manager - single sign-in for apps and services (manual)
+TokenBroker
+# Shell Hardware Detection - autoplay events (manual)
+ShellHWDetection
+# GameDVR and Broadcast User Service (manual)
+BcastDVRUserService
+# Display Policy Service - configuration of local and remote displays (auto-delayed)
+DispBrokerDesktopSvc
+# File History Service (manual-trigger)
+fhsvc
+# Clipboard User Service (manual)
+cbdhsvc
+# Touch Keyboard and Handwriting Panel Service - active when device attached (manual)
+TabletInputService
+# Device Association Service - pairing between the system and wired or wireless devices (auto-trigger)
+DeviceAssociationService
+# Microsoft Windows SMS Router Service (auto-trigger)
+SmsRouter
+# WWAN AutoConfig - manages mobile broadband (GSM & CDMA) data (auto)
+WwanSvc
+# Diagnostic Policy Service (auto)
+DPS
+# Windows Push Notifications System Service (auto)
+WpnService
+# Windows Push Notifications System User Service (auto)
+WpnUserService
+# Connected Devices Platform Service (auto-delayed)
+CDPSvc
+# Connected Devices Platform User Service (auto)
+CDPUserSvc
+# Messaging Service - text messaging support (auto)
+MessagingService
 # Connected User Experiences and Telemetry
 dmwappushservice
 # Diagnostics Tracking Service
@@ -14,15 +42,16 @@ TrkWks
 sedsvc
 # Program Compatability Assistent
 PcaSvc
-# Google Chrome update
-gupdate
-gupdatem
 # OneDrive: Fix Event 7031 System Control Manager
 OneSyncSvc
-OneSyncSvc_470c3
 # Adobe Autoupdate
 AdobeUpdateService
 # Adobe Genuine Integrity Service
 AGSService
+# WPS font cache
+FontCache3.0.0.0
+
+# Windows Font Cache service (auto)
+#FontCache
 
 

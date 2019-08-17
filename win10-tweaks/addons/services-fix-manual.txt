@@ -1,6 +1,12 @@
-# Nvidia
+# Shell Hardware Detection - hardware autoplay events (auto)
+ShellHWDetection
+# Data Usage (auto)
+DusmSvc
+# NVIDIA Display Driver Service (auto)
 nvUpdatusService
 nvsvc
+# VirtualBox system service (auto-delayed)
+VBoxSDS
 # Skype Update Service
 SkypeUpdate
 # HP LaserJet Print
@@ -13,24 +19,14 @@ PnkBstrA
 cphs
 # Freemake Video Converter service
 FreemakeVideoCapture
+# Google Chrome update
+gupdate
+gupdatem
 
-
-# Connected Devices Platform Service (Auto-Delayed)
-## CDPSvc
-# Connected Devices Platform User Service_30c79 (Auto) DISABLE NOT WORK
-## CDPUserSvc_30c79
-# Windows Push Notifications System Service (Auto)
-## WpnService
-# Windows Push Notifications User Service_30c79 (Auto) DISABLE NOT WORK
-## WpnUserService_30c79
-# Superfetch Service (background caching, increase RAM usage)
 # Optimize Windows 10: https://www.tenforums.com/tutorials/26120-optimize-performance-windows-10-a.html
-## SysMain
-# Search Indexing Service
-## WSearch
-# Offline Files
-## CscService
-# Touch Keyboard and Handwriting Panel Service (acitve when device attached)
-## TabletInputService
-# Font Cache Service
-## FontCache
+# Superfetch Service (background caching, increase RAM usage)
+#SysMain
+# Windows Search - search indexing
+#WSearch
+# Offline Files - MS Office
+#CscService

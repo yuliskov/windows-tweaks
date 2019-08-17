@@ -1,5 +1,3 @@
-REM TODO: run at logon every 24 days
-
 @echo off
 
 echo Running %~n0...

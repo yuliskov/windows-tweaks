@@ -45,10 +45,12 @@ echo Blocking license hosts (Adobe)...
 %HOSTS% set practivate.adobe.com  0.0.0.0 >nul
 %HOSTS% set activate.adobe.com 0.0.0.0 >nul
 
-echo Blocking background apps (Adobe)...
-
-ren "%ProgramFiles(x86)%\Common Files\Adobe\OOBE\PDApp\IPC\AdobeIPCBroker.exe" "AdobeIPCBroker.exe.bak" 2>nul
-
-
 echo Cleaning Adobe Cache (frees up to 20 GB)...
 rmdir /s /q "%AppData%\Adobe\Common\Media Cache Files" 2>nul
+
+echo Disabling Adobe background processes...
+ren "%ProgramFiles(x86)%\Adobe\Adobe Creative Cloud\CCXProcess\CCXProcess.exe" "CCXProcess.exe.bak" 2>nul
+ren "%ProgramFiles(x86)%\Common Files\Adobe\OOBE\PDApp\IPC\AdobeIPCBroker.exe" "AdobeIPCBroker.exe.bak" 2>nul
+
+REM TODO: Fix Adobe offline activation, remove:
+REM "C:\Program Files (x86)\Common Files\Adobe\PCF"

@@ -1,3 +1,6 @@
+# Telemetry Hosts: https://github.com/W4RH4WK/Debloat-Windows-10/blob/master/scripts/block-telemetry.ps1
+# Full source: https://github.com/W4RH4WK/Debloat-Windows-10
+
 # Freemake Video Converter license host
 fvc_stat.freemake.com
 
@@ -15,8 +18,19 @@ hlrcv.stage.adobe.com
 practivate.adobe.com
 activate.adobe.com
 
+# Bandicam license hosts
+www.bandicam.com
+bandicam.com
+ssl.bandisoft.com
+cert.bandicam.com
+
+# Windows Update (except virus bases)
+sls.update.microsoft.com
+sls.update.microsoft.com.nsatc.net
+sls.update.microsoft.com.akadns.net
+
 # Microsoft Telemetry Hosts
-# Source: https://github.com/W4RH4WK/Debloat-Windows-10
+# Source: https://github.com/W4RH4WK/Debloat-Windows-10/blob/master/scripts/block-telemetry.ps1
 184-86-53-99.deploy.static.akamaitechnologies.com
 a-0001.a-msedge.net
 a-0002.a-msedge.net
@@ -37,10 +51,6 @@ a.ads1.msn.com
 a.ads2.msads.net
 a.ads2.msn.com
 ac3.msn.com
-# may cause issues with Windows Updates
-sls.update.microsoft.com
-sls.update.microsoft.com.nsatc.net
-sls.update.microsoft.com.akadns.net
 ad.doubleclick.net
 adnexus.net
 adnxs.com
@@ -123,7 +133,6 @@ survey.watson.microsoft.com
 telecommand.telemetry.microsoft.com
 telecommand.telemetry.microsoft.com.nsatc.net
 telemetry.appex.bing.net
-#telemetry.appex.bing.net:443
 telemetry.microsoft.com
 telemetry.urs.microsoft.com
 vortex-bn2.metron.live.com.nsatc.net
@@ -143,12 +152,6 @@ www.bingads.microsoft.com
 www.go.microsoft.akadns.net
 www.msftncsi.com
 client.wns.windows.com
-# may cause issues with Windows Defender Cloud-based protection
-#wdcp.microsoft.com
-# This causes Windows to think it doesn't have internet
-#dns.msftncsi.com
-# breaks Windows Store
-#storeedgefd.dsx.mp.microsoft.com
 wdcpalt.microsoft.com
 settings-ssl.xboxlive.com
 settings-ssl.xboxlive.com-c.edgekey.net
@@ -165,8 +168,8 @@ hubspot.net.edge.net
 e9483.a.akamaiedge.net
 
 #Google
-#www.google-analytics.com
-#padgead2.googlesyndication.com
+www.google-analytics.com
+padgead2.googlesyndication.com
 #mirror1.malwaredomains.com
 #mirror.cedia.org.ec
 stats.g.doubleclick.net
@@ -176,14 +179,15 @@ adservice.google.com
 googleads.g.doubleclick.net
 pagead46.l.doubleclick.net
 hubspot.net.edgekey.net
+
 # Feedback-Hub
 insiderppe.cloudapp.net
 livetileedge.dsx.mp.microsoft.com
 
-# extra
+# Windows Extra
 fe2.update.microsoft.com.akadns.net
-s0.2mdn.net
 statsfe2.update.microsoft.com.akadns.net
+s0.2mdn.net
 survey.watson.microsoft.com
 view.atdmt.com
 watson.microsoft.com
@@ -193,11 +197,18 @@ watson.telemetry.microsoft.com.nsatc.net
 wes.df.telemetry.microsoft.com
 m.hotmail.com
 
-# can cause issues with Skype (#79)
+# Can cause issues with Skype
 apps.skype.com
 c.msn.com
-# prevents login to outlook and other live apps
-#login.live.com
 pricelist.skype.com
 s.gateway.messenger.live.com
 ui.skype.com
+
+# May cause issues with Windows Defender Cloud-based protection
+#wdcp.microsoft.com
+# This causes Windows to think it doesn't have internet
+#dns.msftncsi.com
+# Breaks Windows Store
+#storeedgefd.dsx.mp.microsoft.com
+# Prevents login to outlook and other live apps
+#login.live.com
