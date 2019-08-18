@@ -1,5 +1,3 @@
-# Web Account Manager - single sign-in for apps and services (manual)
-TokenBroker
 # Shell Hardware Detection - autoplay events (manual)
 ShellHWDetection
 # GameDVR and Broadcast User Service (manual)
@@ -53,5 +51,8 @@ FontCache3.0.0.0
 
 # Windows Font Cache service (auto)
 #FontCache
+# Web Account Manager - single sign-in for apps and services (manual)
+# Required for Microsoft Store
+#TokenBroker
 
 
