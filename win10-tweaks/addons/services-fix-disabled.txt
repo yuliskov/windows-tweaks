@@ -16,10 +16,6 @@ SmsRouter
 WwanSvc
 # Diagnostic Policy Service (auto)
 DPS
-# Windows Push Notifications System Service (auto)
-WpnService
-# Windows Push Notifications System User Service (auto)
-WpnUserService
 # Connected Devices Platform Service (auto-delayed)
 CDPSvc
 # Connected Devices Platform User Service (auto)
@@ -47,7 +43,11 @@ AGSService
 # WPS font cache
 FontCache3.0.0.0
 
-# Clipboard User Service (manual)
+# Windows Push Notifications System Service (auto)
+#WpnService
+# Windows Push Notifications System User Service (auto)
+#WpnUserService
+# Clipboard User Service - Metro Apps Clipboard (manual)
 #cbdhsvc
 # Windows Font Cache service (auto)
 #FontCache
