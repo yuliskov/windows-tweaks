@@ -1,11 +1,9 @@
-# Shell Hardware Detection - autoplay events (manual)
+# Shell Hardware Detection - autoplay events
 ShellHWDetection
 # GameDVR and Broadcast User Service (manual)
 BcastDVRUserService
 # Display Policy Service - configuration of local and remote displays (auto-delayed)
 DispBrokerDesktopSvc
-# File History Service (manual-trigger)
-fhsvc
 # Touch Keyboard and Handwriting Panel Service - active when device attached (manual)
 TabletInputService
 # Device Association Service - pairing between the system and wired or wireless devices (auto-trigger)
@@ -43,6 +41,8 @@ AGSService
 # WPS font cache
 FontCache3.0.0.0
 
+# File History Service (manual-trigger)
+#fhsvc
 # Windows Push Notifications System Service (auto)
 #WpnService
 # Windows Push Notifications System User Service (auto)
