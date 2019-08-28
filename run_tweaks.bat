@@ -108,31 +108,3 @@ goto WINDOWS_END
 echo ====================
 echo Finishing cleanup...
 echo ====================
-
-REM cleanmgr settings
-reg import data\cleanmgr.reg >nul
-
-REM uncheck Defender, Temporal Files
-REM if task already exist skip cleanup
-cleanmgr /sagerun:1
-REM Does verylowdisk hide GUI??? (No on Win10)
-REM cleanmgr /sagerun:1 /verylowdisk
-
-REM REM remove driver backups (view: pnputil -e)
-REM for /l %%N in (1,1,30) do pnputil -d oem%%N.inf >nul
-
-REM clear event logs, some logs cannot be cleared
-echo Clearing event logs...
-for /f %%E in ('wevtutil el') do wevtutil cl %%E 2>nul
-
-REM defrag only work with elevate-x64
-
-REM REM boot optimization and defragmentation
-REM REM fixed: Some registry entries were missing from the boot optimization section of the registry. (0x89000017)
-REM defrag.exe %SystemDrive% /B /U
-REM if "%ERRORLEVEL%"=="0" goto DEFRAG_OK
-REM start /wait rundll32.exe advapi32.dll,ProcessIdleTasks
-REM :DEFRAG_OK
-
-REM problem on win7 ro folder
-REM call data\play_sound.bat

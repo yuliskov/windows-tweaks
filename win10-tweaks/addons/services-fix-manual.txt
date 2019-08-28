@@ -1,3 +1,5 @@
+# Shell Hardware Detection - autoplay events
+ShellHWDetection
 # Data Usage (auto)
 DusmSvc
 # NVIDIA Display Driver Service (auto)

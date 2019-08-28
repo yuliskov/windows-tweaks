@@ -69,6 +69,12 @@ REM Microsoft Visual C++ 2012 Redistributable (x86) - 11.0.61030
 REM Microsoft Visual C++ 2013 Redistributable (x86) - 12.0.30501
 "C:\ProgramData\Package Cache\{f65db027-aff3-4070-886a-0d87064aabb1}\vcredist_x86.exe" /uninstall /quiet 2>nul
 
+REM Microsoft Visual C++ 2012 Redistributable (x64-ru) - 11.0.61030
+"C:\ProgramData\Package Cache\{a2199617-3609-410f-a8e8-e8806c73545b}\vcredist_x64.exe" /uninstall /quiet 2>nul
+
+REM Microsoft Visual C++ 2013 Redistributable (x64-ru) - 12.0.21005.1
+"C:\ProgramData\Package Cache\{51adbf11-493f-431c-a862-967a0fae2944}\vcredist_x64.exe" /uninstall /quiet 2>nul
+
 REM REM Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161 (MSIAfterburner)
 REM MsiExec.exe /X{9BE518E6-ECC6-35A9-88E4-87755C07200F} /passive
 

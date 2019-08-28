@@ -23,7 +23,7 @@ goto :eof
 
 REM ================================================================
 
-echo Cleaning System ('run once' tweaks)...
+echo Applying System tweaks...
 
 REM REM FIXME: set values on active power scheme
 REM REM disable 'require a password on wakeup' (0=no, 1=yes)
@@ -43,7 +43,4 @@ REM HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
 REM enable auto login (select in GUI)
 set REG=HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
 reg query "%REG%" /v AutoAdminLogon | findstr 0 >nul && netplwiz
-
-REM Clean Up the WinSxS Folder
-DISM /Online /Cleanup-Image /StartComponentCleanup
 

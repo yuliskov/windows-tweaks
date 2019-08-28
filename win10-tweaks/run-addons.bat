@@ -30,7 +30,7 @@ REM Are we running from scheduled task? Limit to basic job only.
 REM NOTE: exit /b to return "operation completed successfully"
 if "%1"=="task" exit /b
 
-echo Running system tweaks (should be executed only once)...
+echo Running System tweaks (should be executed only once)...
 
 set CORE_TEMPLATE=core\*.bat
 pushd "%CD%"
