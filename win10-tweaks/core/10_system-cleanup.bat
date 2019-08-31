@@ -45,5 +45,6 @@ DISM /Online /Cleanup-Image /StartComponentCleanup
 
 echo Fixing broken System files...
 REM Such files may appear after previous command
-DISM /Online /Cleanup-image /Restorehealth
+sfc /scannow
+REM DISM /Online /Cleanup-image /Restorehealth
 

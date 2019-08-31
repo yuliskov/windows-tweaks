@@ -19,8 +19,9 @@ if %errorlevel% EQU 0 (
 :SKIP_CHECK
 
 for /d %%f in ("%IDEA_PROFILE_DIR_TEMPLATE%") do call :IdeaLicenseFix %%f
+
 REM comment line below in case you want only reset trial
-call :SetupTask
+REM call :SetupTask
 
 goto End
 
