@@ -25,9 +25,9 @@ ssl.bandisoft.com
 cert.bandicam.com
 
 # Windows Update (except virus bases)
-sls.update.microsoft.com
-sls.update.microsoft.com.nsatc.net
-sls.update.microsoft.com.akadns.net
+#sls.update.microsoft.com
+#sls.update.microsoft.com.nsatc.net
+#sls.update.microsoft.com.akadns.net
 
 # Microsoft Telemetry Hosts
 # Source: https://github.com/W4RH4WK/Debloat-Windows-10/blob/master/scripts/block-telemetry.ps1
@@ -43,9 +43,7 @@ a-0008.a-msedge.net
 a-0009.a-msedge.net
 a1621.g.akamai.net
 a1856.g2.akamai.net
-a1961.g.akamai.net
-# makes iTunes download button disappear (#43)
-#a248.e.akamai.net            
+a1961.g.akamai.net           
 a978.i6g1.akamai.net
 a.ads1.msn.com
 a.ads2.msads.net
@@ -204,6 +202,8 @@ pricelist.skype.com
 s.gateway.messenger.live.com
 ui.skype.com
 
+# makes iTunes download button disappear (#43)
+#a248.e.akamai.net 
 # May cause issues with Windows Defender Cloud-based protection
 #wdcp.microsoft.com
 # This causes Windows to think it doesn't have internet

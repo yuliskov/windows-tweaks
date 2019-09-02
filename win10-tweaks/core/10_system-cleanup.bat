@@ -49,6 +49,6 @@ del "%AppData%\Microsoft\Windows\Start Menu\Programs\Startup\*.*" 2>nul
 echo Fixing broken System files...
 
 REM Such files may appear after previous command
-REM DISM /Online /Cleanup-image /Restorehealth
+DISM /Online /Cleanup-image /Restorehealth
 sfc /scannow
 
