@@ -43,8 +43,12 @@ for /f %%E in ('wevtutil el') do wevtutil cl %%E 2>nul
 echo Cleaning WinSxS folder...
 DISM /Online /Cleanup-Image /StartComponentCleanup
 
+echo Cleaning Startup folder...
+del "%AppData%\Microsoft\Windows\Start Menu\Programs\Startup\*.*" 2>nul
+
 echo Fixing broken System files...
+
 REM Such files may appear after previous command
-sfc /scannow
 REM DISM /Online /Cleanup-image /Restorehealth
+sfc /scannow
 

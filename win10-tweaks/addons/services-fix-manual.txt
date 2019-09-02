@@ -1,3 +1,6 @@
+# Autodesk (auto)
+AdAppMgrSvc
+FlexNet Licensing Service
 # Shell Hardware Detection - autoplay events
 ShellHWDetection
 # Data Usage (auto)
@@ -23,6 +26,8 @@ FreemakeVideoCapture
 gupdate
 gupdatem
 
+# Autodesk (auto)
+#AdskLicensingService
 # Optimize Windows 10: https://www.tenforums.com/tutorials/26120-optimize-performance-windows-10-a.html
 # Superfetch Service (background caching, increase RAM usage)
 #SysMain
