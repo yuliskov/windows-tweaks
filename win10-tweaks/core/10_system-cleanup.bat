@@ -41,14 +41,16 @@ echo Clearing event logs...
 for /f %%E in ('wevtutil el') do wevtutil cl %%E 2>nul
 
 echo Cleaning WinSxS folder...
-DISM /Online /Cleanup-Image /StartComponentCleanup
+DISM /Online /Cleanup-Image /StartComponentCleanup >nul
 
 echo Cleaning Startup folder...
-del "%AppData%\Microsoft\Windows\Start Menu\Programs\Startup\*.*" 2>nul
+del /q "%AppData%\Microsoft\Windows\Start Menu\Programs\Startup\*.*" 2>nul
+
+REM Broken files may appear after previous command
+
+echo Fixing broken Distribution files...
+DISM /Online /Cleanup-image /Restorehealth >nul
 
 echo Fixing broken System files...
-
-REM Such files may appear after previous command
-DISM /Online /Cleanup-image /Restorehealth
-sfc /scannow
+sfc /scannow >nul
 

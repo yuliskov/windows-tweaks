@@ -19,15 +19,17 @@ practivate.adobe.com
 activate.adobe.com
 
 # Bandicam license hosts
-www.bandicam.com
-bandicam.com
+#www.bandicam.com
+#bandicam.com
 ssl.bandisoft.com
+cert.bandisoft.com
+ssl.bandicam.com
 cert.bandicam.com
 
 # Windows Update (except virus bases)
-#sls.update.microsoft.com
-#sls.update.microsoft.com.nsatc.net
-#sls.update.microsoft.com.akadns.net
+sls.update.microsoft.com
+sls.update.microsoft.com.nsatc.net
+sls.update.microsoft.com.akadns.net
 
 # Microsoft Telemetry Hosts
 # Source: https://github.com/W4RH4WK/Debloat-Windows-10/blob/master/scripts/block-telemetry.ps1

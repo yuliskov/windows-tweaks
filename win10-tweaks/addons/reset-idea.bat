@@ -9,13 +9,19 @@ set IDEA_PROFILE_DIR_TEMPLATE=%UserProfile%\.IntelliJIdea*
 
 if "%1"=="ok" goto ENABLE_CHECK
 goto SKIP_CHECK
+
 :ENABLE_CHECK
-REM seems running from the global script... do the checks before....
+
+REM seems running from the main script... installing the task....
 schtasks /query /TN %MY_TASK_NAME% >NUL 2>&1
 if %errorlevel% EQU 0 (
 	echo Idea reset task already created... exiting...
 	goto End
 )
+
+REM comment this line to enable auto-task creation
+goto End
+
 :SKIP_CHECK
 
 for /d %%f in ("%IDEA_PROFILE_DIR_TEMPLATE%") do call :IdeaLicenseFix %%f

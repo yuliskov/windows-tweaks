@@ -31,7 +31,7 @@ rmdir /s /q "%SystemDrive%\_acestream_cache_" 2>nul
 REM rmdir /s /q "%ProgramFiles%\NVIDIA Corporation\Installer2"
 
 REM fix: chrome didn't shutdown correctly
-del "%LocalAppData%\Google\*.tmp" /s 2>nul
+del "%LocalAppData%\Google\*.tmp" /s 2>nul >nul
 
 REM common location for Chome's downloaded files
 del "%UserProfile%\Downloads\*.torrent" 2>nul
@@ -53,8 +53,8 @@ del "%UserProfile%\java_error_in_idea.hprof" 2>nul
 REM Android SDK cleanup
 rmdir /s /q "%UserProfile%\.gradle\caches" 2>nul
 rmdir /s /q "%UserProfile%\.gradle\daemon" 2>nul
-REM remove all gradle wrapper dists:
-REM rmdir /s /q "%UserProfile%\.gradle\wrapper" 2>nul
+REM remove all (inc. old ones) gradle wrapper dists:
+rmdir /s /q "%UserProfile%\.gradle\wrapper" 2>nul
 
 REM Genymotion logs
 del "%UserProfile%\genymotion-logs-*.zip" 2>nul

@@ -63,7 +63,7 @@ echo Beginning junk cleanup...
 echo =========================
 
 REM close processes that interfere with cleanup tasks
-REM start /wait %NIRCMD% closeprocess chrome.exe
+start /wait %NIRCMD% closeprocess chrome.exe
 
 echo Running CCleaner...
 start /wait %CCLEANER% /auto
