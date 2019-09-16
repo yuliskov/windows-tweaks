@@ -25,12 +25,22 @@ REM ================================================================
 
 echo Cleaning System...
 
+echo Running Disk Cleanup...
+
+if not exist "%SystemDrive%\Windows.old" goto NO_WINDOWS_OLD
+
+SET /P AREYOUSURE=Remove Windows.old directory (Y/[N])?
+IF /I "%AREYOUSURE%" NEQ "Y" GOTO NO_CLEANUP
+
+:NO_WINDOWS_OLD
+
 REM Import Disk Cleanup settings
 reg import cleanmgr.reg >nul
 
-echo Running Disk Cleanup...
 REM Uncheck Defender, Temporal Files
 cleanmgr /sagerun:1
+
+:NO_CLEANUP
 
 REM REM remove driver backups (view: pnputil -e)
 REM REM NOTE: not active drivers (like printer ones) will be removed too
