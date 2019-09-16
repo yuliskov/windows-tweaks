@@ -24,10 +24,10 @@ goto :eof
 REM ================================================================
 
 REM misc tmp dirs
-rmdir /s /q "%SystemDrive%\Config.Msi" 2>nul
-rmdir /s /q "%SystemDrive%\NVIDIA" 2>nul
-rmdir /s /q "%SystemDrive%\Intel" 2>nul
-rmdir /s /q "%SystemDrive%\_acestream_cache_" 2>nul
+rmdir /s /q "%SystemDrive%\Config.Msi" 2>nul >nul
+rmdir /s /q "%SystemDrive%\NVIDIA" 2>nul >nul
+rmdir /s /q "%SystemDrive%\Intel" 2>nul >nul
+rmdir /s /q "%SystemDrive%\_acestream_cache_" 2>nul >nul
 REM rmdir /s /q "%ProgramFiles%\NVIDIA Corporation\Installer2"
 
 REM fix: chrome didn't shutdown correctly
@@ -45,16 +45,16 @@ del /a:- "%ProgramFiles%\desktop.ini" 2>nul
 del /a:- "%ProgramFiles(x86)%\desktop.ini" 2>nul
 
 REM PowerISO WinPE image (~1.5GB)
-rmdir /s /q "%AppData%\PowerISO\PE Files" 2>nul
+rmdir /s /q "%AppData%\PowerISO\PE Files" 2>nul >nul
 
 REM IntelliJ crash dump (~1GB)
 del "%UserProfile%\java_error_in_idea.hprof" 2>nul
 
 REM Android SDK cleanup
-rmdir /s /q "%UserProfile%\.gradle\caches" 2>nul
-rmdir /s /q "%UserProfile%\.gradle\daemon" 2>nul
+rmdir /s /q "%UserProfile%\.gradle\caches" 2>nul >nul
+rmdir /s /q "%UserProfile%\.gradle\daemon" 2>nul >nul
 REM remove all (inc. old ones) gradle wrapper dists:
-rmdir /s /q "%UserProfile%\.gradle\wrapper" 2>nul
+rmdir /s /q "%UserProfile%\.gradle\wrapper" 2>nul >nul
 
 REM Genymotion logs
 del "%UserProfile%\genymotion-logs-*.zip" 2>nul

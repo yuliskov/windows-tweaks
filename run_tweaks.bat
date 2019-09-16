@@ -62,14 +62,15 @@ echo =========================
 echo Beginning junk cleanup...
 echo =========================
 
-REM close processes that interfere with cleanup tasks
+echo Closing processes that may interfere with cleanup tasks...
 start /wait %NIRCMD% closeprocess chrome.exe
 
 echo Running CCleaner...
 start /wait %CCLEANER% /auto
 
 REM restore processes
-REM start /d "C:\Program Files (x86)\Google\Chrome\Application" chrome.exe --start-maximized --disk-cache-size=104857600
+REM start /d "%ProgramFiles(x86)%\Google\Chrome\Application" chrome.exe --start-maximized --disk-cache-size=104857600
+REM start "" "%ProgramData%\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
 
 echo =============================
 echo Entering main cleanup part...

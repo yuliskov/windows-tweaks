@@ -25,6 +25,7 @@ REM ================================================================
 
 REM sync task in tray that was appeared surpraisingly (process: msosync.exe)
 REM schtasks /Delete /TN "\Microsoft Office 15 Sync Maintenance for %ComputerName%-%UserName% %ComputerName%" /F >nul 2>&1
+REM path: C:\Program Files\Microsoft Office\Office15\MsoSync.exe
 schtasks /Change /DISABLE /TN "\Microsoft Office 15 Sync Maintenance for %ComputerName%-%UserName% %ComputerName%" >nul 2>nul
 schtasks /Change /DISABLE /TN "\Microsoft\Office\Office 15 Subscription Heartbeat" >nul 2>nul
 taskkill /im msosync.exe /f 2>nul
