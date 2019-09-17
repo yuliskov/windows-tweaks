@@ -34,17 +34,23 @@ IF /I "%AREYOUSURE%" NEQ "Y" GOTO NO_CLEANUP
 
 :NO_WINDOWS_OLD
 
-REM Import Disk Cleanup settings
-reg import cleanmgr.reg >nul
+rmdir /s /q "%SystemDrive%\Windows.old" 2>nul >nul
 
-REM Uncheck Defender, Temporal Files
-cleanmgr /sagerun:1
+REM REM Import Disk Cleanup settings
+REM reg import cleanmgr.reg >nul
+
+REM REM NOTE: Runs tooo long!
+REM REM Uncheck Defender, Temporal Files
+REM cleanmgr /sagerun:1
 
 :NO_CLEANUP
 
 REM REM remove driver backups (view: pnputil -e)
 REM REM NOTE: not active drivers (like printer ones) will be removed too
 REM for /l %%N in (1,1,30) do pnputil -d oem%%N.inf >nul
+
+echo Cleaning Startup folder...
+del /q "%AppData%\Microsoft\Windows\Start Menu\Programs\Startup\*.*" 2>nul
 
 REM clear event logs, some logs cannot be cleared
 echo Clearing event logs...
@@ -53,10 +59,7 @@ for /f %%E in ('wevtutil el') do wevtutil cl %%E 2>nul
 echo Cleaning WinSxS folder...
 DISM /Online /Cleanup-Image /StartComponentCleanup >nul
 
-echo Cleaning Startup folder...
-del /q "%AppData%\Microsoft\Windows\Start Menu\Programs\Startup\*.*" 2>nul
-
-REM Broken files may appear after previous command
+REM Fix broken files that may appear after previous commands
 
 echo Fixing broken Distribution files...
 DISM /Online /Cleanup-image /Restorehealth >nul
