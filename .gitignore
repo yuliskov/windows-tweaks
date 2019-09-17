@@ -3,3 +3,4 @@ tmp/
 *.bak
 *.tmp
 /notes.txt
+lang-tweaks.reg

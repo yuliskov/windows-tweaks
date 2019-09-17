@@ -23,8 +23,7 @@ goto :eof
 
 REM ================================================================
 
-SET REGFILE_NAME=%~n0.reg
-
 echo Applying registry tweaks...
-REM core tweaks
-reg import "%REGFILE_NAME%" >nul 2>nul
+
+set REG_TWEAKS_TEMPLATE=*.reg
+for /r %%f in ("%REG_TWEAKS_TEMPLATE%") do reg import "%%f" >nul 2>nul
