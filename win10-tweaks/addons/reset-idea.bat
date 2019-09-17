@@ -12,12 +12,12 @@ goto SKIP_CHECK
 
 :ENABLE_CHECK
 
-REM seems running from the main script... installing the task....
-schtasks /query /TN %MY_TASK_NAME% >NUL 2>&1
-if %errorlevel% EQU 0 (
-	echo Idea reset task already created... exiting...
-	goto End
-)
+REM REM seems running from the main script... installing the task....
+REM schtasks /query /TN %MY_TASK_NAME% >NUL 2>&1
+REM if %errorlevel% EQU 0 (
+REM 	echo Idea reset task already created... exiting...
+REM 	goto End
+REM )
 
 REM comment this line to enable auto-task creation
 goto End

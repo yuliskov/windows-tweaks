@@ -26,13 +26,14 @@ pushd "%CD%"
 for /r %%f in ("%ADDONS_TEMPLATE%") do call "%%f" ok
 popd
 
-REM Are we running from scheduled task? Limit to basic job only.
-REM NOTE: exit /b to return "operation completed successfully"
-if "%1"=="task" exit /b
+REM Are we running from the scheduled task? Limit to basic job only.
+if "%1"=="task" goto SKIP_CORE_TWEAKS
 
-echo Running System tweaks (should be executed only once)...
+echo Running System tweaks (shouldn't be executed frequently)...
 
 set CORE_TEMPLATE=core\*.bat
 pushd "%CD%"
 for /r %%f in ("%CORE_TEMPLATE%") do call "%%f" ok
 popd
+
+:SKIP_CORE_TWEAKS

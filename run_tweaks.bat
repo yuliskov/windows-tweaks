@@ -58,6 +58,13 @@ REM schtasks /Change /TN "Cleanup Task" /TR "%TASK_COMMAND%" /RU Users /RL HIGHE
 REM REM ru fix: all default users and groups are localized on non-english locales
 REM schtasks /Change /TN "Cleanup Task" /TR "%TASK_COMMAND%" /RU Пользователи /RL HIGHEST 2>nul
 
+echo ============================
+echo Preparing for the cleanup...
+echo ============================
+
+echo Creating Restore point (you could easily revert changes)...
+Wmic.exe /Namespace:\\root\default Path SystemRestore Call CreateRestorePoint "%DATE%", 100, 7 2>nul >nul
+
 echo =========================
 echo Beginning junk cleanup...
 echo =========================
@@ -72,9 +79,9 @@ REM restore processes
 REM start /d "%ProgramFiles(x86)%\Google\Chrome\Application" chrome.exe --start-maximized --disk-cache-size=104857600
 REM start "" "%ProgramData%\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
 
-echo =============================
-echo Entering main cleanup part...
-echo =============================
+echo ==============================
+echo Beginning main cleanup part...
+echo ==============================
 
 echo Detecting OS...
 for /f "tokens=4-5 delims=. " %%i in ('ver') do set VERSION=%%i.%%j
