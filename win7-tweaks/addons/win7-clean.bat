@@ -22,14 +22,6 @@ del /a:- "%UserProfile%\Downloads\desktop.ini" 2>nul
 del /a:- "%ProgramFiles%\desktop.ini" 2>nul
 del /a:- "%ProgramFiles(x86)%\desktop.ini" 2>nul
 
-REM !!!!!!!!!TWEAKS!!!!!!!!!!
-
-SET REGFILE_NAME=win7-tweaks.reg
-
-echo applying registry tweaks...
-REM core tweaks
-reg import %REGFILE_NAME% >nul
-
 
 REM sync task in tray that was appeared surpraisingly (process: msosync.exe)
 REM schtasks /Delete /TN "\Microsoft Office 15 Sync Maintenance for %ComputerName%-%UserName% %ComputerName%" /F >nul 2>&1
@@ -182,7 +174,7 @@ REM End Services
 
 
 REM REM Block unwanted hosts (Adobe)
-REM set HOSTS=data\hosts.exe
+REM set HOSTS=..\data\hosts.exe
 REM %HOSTS% set lmlicenses.wip4.adobe.com 0.0.0.0
 REM %HOSTS% set lm.licenses.adobe.com 0.0.0.0
 REM %HOSTS% set na1r.services.adobe.com 0.0.0.0
@@ -191,7 +183,7 @@ REM %HOSTS% set practivate.adobe.com  0.0.0.0
 REM %HOSTS% set activate.adobe.com 0.0.0.0
 
 REM REM SublimeText2
-REM set HOSTS=data\hosts.exe
+REM set HOSTS=..\data\hosts.exe
 REM %HOSTS% set license.sublimehq.com 0.0.0.0
 REM %HOSTS% set 45.55.255.55 0.0.0.0
 REM %HOSTS% set 45.55.41.223 0.0.0.0
@@ -396,4 +388,4 @@ reg query "%REG%" /v AutoAdminLogon | findstr 0 >nul && netplwiz
 REM REM Clean Up the WinSxS Folder (not working in win7)
 REM DISM /Online /Cleanup-Image /StartComponentCleanup
 
-"data\Kb950375.vbs"
+"..\data\Kb950375.vbs"

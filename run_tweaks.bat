@@ -110,7 +110,6 @@ goto WINDOWS_END
 :WINDOWS_7
 echo Windows 7 detected
 pushd win7-tweaks
-call win7-clean.bat
 call run-addons.bat ok
 popd
 goto WINDOWS_END
