@@ -1,6 +1,7 @@
 bak/
 tmp/
 *.bak
+*.old
 *.tmp
 /notes.txt
 lang-tweaks.reg
