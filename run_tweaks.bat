@@ -95,7 +95,7 @@ endlocal
 :WINDOWS_10
 echo Windows 10 detected
 pushd win10-tweaks
-call win10-clean.bat
+call run-addons.bat ok
 popd
 goto WINDOWS_END
 
@@ -111,6 +111,7 @@ goto WINDOWS_END
 echo Windows 7 detected
 pushd win7-tweaks
 call win7-clean.bat
+call run-addons.bat ok
 popd
 goto WINDOWS_END
 
