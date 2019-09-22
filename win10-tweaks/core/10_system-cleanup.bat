@@ -61,9 +61,14 @@ DISM /Online /Cleanup-Image /StartComponentCleanup >nul
 
 REM Fix broken files that may appear after previous commands
 
+SET /P AREYOUSURE=Fix broken files (Y/[N])?
+IF /I "%AREYOUSURE%" NEQ "Y" GOTO NO_FIX
+
 echo Fixing broken Distribution files...
 DISM /Online /Cleanup-image /Restorehealth >nul
 
 echo Fixing broken System files...
 sfc /scannow >nul
+
+:NO_FIX
 
