@@ -192,7 +192,6 @@ REM More info: https://github.com/W4RH4WK/Debloat-Windows-10
 REM list packages: Get-AppxPackage -AllUsers | out-string -stream | select-string "^Name"
 powershell -Command "Get-AppxPackage *zunemusic* | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage *bingsports* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *xboxapp* | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage *3dbuilder* | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage *officehub* | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage *solitairecollection* | Remove-AppxPackage"
@@ -208,6 +207,9 @@ REM More info: https://winaero.com/blog/uninstall-mixed-reality-portal-windows-1
 REM powershell -Command "Get-AppxPackage *holographicfirstrun* | Remove-AppxPackage"
 REM SMS app
 powershell -Command "Get-AppxPackage *messaging* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *xboxidentity* | Remove-AppxPackage"
 REM Microsoft Phone app (do call, answer, etc)
 powershell -Command "Get-AppxPackage *commsphone* | Remove-AppxPackage"
+REM 'XBox Game Bar' and other stuff (throws error)
+powershell -Command "Get-AppxPackage *xbox* | Remove-AppxPackage" 2>nul
+REM 'Your Phone' app
+REM powershell -Command "Get-AppxPackage *yourphone* | Remove-AppxPackage"

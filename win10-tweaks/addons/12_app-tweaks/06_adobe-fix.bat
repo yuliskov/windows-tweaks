@@ -23,8 +23,10 @@ goto :eof
 
 REM ================================================================
 
+set DATA_DIR=..\..\data
+
 REM Import external utils here
-set HOSTS=..\data\hosts.exe
+set HOSTS=%DATA_DIR%\hosts.exe
 
 echo Blocking unwanted services (Adobe)...
 

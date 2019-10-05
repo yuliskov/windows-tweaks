@@ -21,19 +21,20 @@ goto :eof
 REM =========================================
 
 echo Running addons...
-set ADDONS_TEMPLATE=addons\*.bat
+
+set ADDONS_DIR=addons
 pushd "%CD%"
-for /r %%f in ("%ADDONS_TEMPLATE%") do call "%%f" ok
+for /r %ADDONS_DIR% %%f in (*.bat) do call "%%f" ok
 popd
 
 REM Are we running from the scheduled task? Limit to basic job only.
 if "%1"=="task" goto SKIP_CORE_TWEAKS
 
-echo Running System tweaks (shouldn't be executed frequently)...
+echo Running System tweaks...
 
-set CORE_TEMPLATE=core\*.bat
+set CORE_DIR=core
 pushd "%CD%"
-for /r %%f in ("%CORE_TEMPLATE%") do call "%%f" ok
+for /r %CORE_DIR% %%f in (*.bat) do call "%%f" ok
 popd
 
 :SKIP_CORE_TWEAKS
