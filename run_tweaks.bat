@@ -31,6 +31,7 @@ IF [%DAY%]==[Mon] IF NOT EXIST "%AppData%\Lock_%YYYYMMDD%.lck" (
 :SKIP_CHECKS
 
 REM 'start' to use short path
+set DATA_DIR=%~dp0data
 SET CCLEANER_DIR=%~dp0CCleaner
 SET CCLEANER=ccleaner64.exe
 SET NIRCMD=nircmd-x64.exe
@@ -115,6 +116,14 @@ popd
 goto WINDOWS_END
 
 :WINDOWS_END
+
+SET /P AREYOUSURE=Defragment your disks (Y/[N])?
+IF /I "%AREYOUSURE%" NEQ "Y" GOTO NO_DEFRAG
+
+echo Starting defragmentation...
+%DATA_DIR%\defrag.exe -c
+
+:NO_DEFRAG
 
 echo ====================
 echo Finishing cleanup...
