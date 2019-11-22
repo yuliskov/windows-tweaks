@@ -8,6 +8,7 @@ DusmSvc
 # NVIDIA Display Driver Service (auto)
 nvUpdatusService
 nvsvc
+NVDisplay.ContainerLocalSystem
 # VirtualBox system service (auto-delayed)
 VBoxSDS
 # Skype Update Service

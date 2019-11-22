@@ -54,7 +54,7 @@ REM Android SDK cleanup
 rmdir /s /q "%UserProfile%\.gradle\caches" 2>nul >nul
 rmdir /s /q "%UserProfile%\.gradle\daemon" 2>nul >nul
 REM remove all (inc. old ones) gradle wrapper dists:
-rmdir /s /q "%UserProfile%\.gradle\wrapper" 2>nul >nul
+REM rmdir /s /q "%UserProfile%\.gradle\wrapper" 2>nul >nul
 
 REM Genymotion logs
 del "%UserProfile%\genymotion-logs-*.zip" 2>nul

@@ -61,8 +61,13 @@ DISM /Online /Cleanup-Image /StartComponentCleanup >nul
 
 REM Fix broken files that may appear after previous commands
 
+if exist "fix_broken_files_y.cfg" goto START_FIX
+if exist "fix_broken_files_n.cfg" goto NO_FIX
+
 SET /P AREYOUSURE=Fix broken files (Y/[N])?
 IF /I "%AREYOUSURE%" NEQ "Y" GOTO NO_FIX
+
+:START_FIX
 
 echo Fixing broken Distribution files...
 DISM /Online /Cleanup-image /Restorehealth >nul

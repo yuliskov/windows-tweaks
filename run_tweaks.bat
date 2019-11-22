@@ -117,8 +117,13 @@ goto WINDOWS_END
 
 :WINDOWS_END
 
+if exist "defrag_disks_y.cfg" goto START_DEFRAG
+if exist "defrag_disks_n.cfg" goto NO_DEFRAG
+
 SET /P AREYOUSURE=Defragment your disks (Y/[N])?
 IF /I "%AREYOUSURE%" NEQ "Y" GOTO NO_DEFRAG
+
+:START_DEFRAG
 
 echo Starting defragmentation...
 %DATA_DIR%\defrag.exe -c

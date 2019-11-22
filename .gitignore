@@ -3,6 +3,7 @@ tmp/
 *.bak
 *.old
 *.tmp
+*.cfg
 /notes.txt
 lang-tweaks.reg
 reg-tweaks-lang.reg
