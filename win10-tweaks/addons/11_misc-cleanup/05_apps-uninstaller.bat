@@ -213,3 +213,5 @@ REM 'XBox Game Bar' and other stuff (throws error)
 powershell -Command "Get-AppxPackage *xbox* | Remove-AppxPackage" 2>nul
 REM 'Your Phone' app
 REM powershell -Command "Get-AppxPackage *yourphone* | Remove-AppxPackage"
+REM Skype
+powershell -Command "Get-AppxPackage *skype* | Remove-AppxPackage"

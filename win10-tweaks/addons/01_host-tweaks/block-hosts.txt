@@ -1,6 +1,9 @@
 # Telemetry Hosts: https://github.com/W4RH4WK/Debloat-Windows-10/blob/master/scripts/block-telemetry.ps1
 # Full source: https://github.com/W4RH4WK/Debloat-Windows-10
 
+# Chrome updates
+#update.googleapis.com
+
 # Freemake Video Converter license host
 fvc_stat.freemake.com
 
@@ -27,9 +30,12 @@ ssl.bandicam.com
 cert.bandicam.com
 
 # Windows Update (except virus bases)
-sls.update.microsoft.com
-sls.update.microsoft.com.nsatc.net
-sls.update.microsoft.com.akadns.net
+#sls.update.microsoft.com
+#sls.update.microsoft.com.nsatc.net
+#sls.update.microsoft.com.akadns.net
+
+# May cause issues with Windows Updates
+#settings-win.data.microsoft.com
 
 # Microsoft Telemetry Hosts
 # Source: https://github.com/W4RH4WK/Debloat-Windows-10/blob/master/scripts/block-telemetry.ps1
@@ -120,7 +126,6 @@ secure.adnxs.com
 secure.flashtalking.com
 services.wes.df.telemetry.microsoft.com
 settings-sandbox.data.microsoft.com
-settings-win.data.microsoft.com
 sqm.df.telemetry.microsoft.com
 sqm.telemetry.microsoft.com
 sqm.telemetry.microsoft.com.nsatc.net

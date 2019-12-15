@@ -1,0 +1,49 @@
+# Fix wsappx high CPU load
+\Microsoft\Windows\Maps\MapsUpdateTask
+
+# MS One Drive
+\Microsoft\Windows\Flighting\OneSettings\RefreshCache
+
+# Telemetry and reporting
+\Microsoft\Windows\Autochk\Proxy
+\Microsoft\Windows\Windows Error Reporting\QueueReporting
+\Microsoft\Windows\Customer Experience Improvement Program\Consolidator
+\Microsoft\Windows\Application Experience\ProgramDataUpdater
+\Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser
+
+# Xbox Live
+\Microsoft\XblGameSave\XblGameSaveTaskLogon
+
+# Sync task in tray that was appeared surpraisingly (process: msosync.exe)
+# Path: C:\Program Files\Microsoft Office\Office15\MsoSync.exe
+\Microsoft Office 15 Sync Maintenance for %ComputerName%-%UserName% %ComputerName%
+\Microsoft\Office\Office 15 Subscription Heartbeat
+
+# Adobe (example: \AdobeAAMUpdater-1.0-DESKTOP-G03L3IK-UserName)
+\AdobeAAMUpdater-1.0-%ComputerName%-%UserName%
+
+# cause number of DistributedCOM errors in event log?
+#\Microsoft\Windows\SkyDrive\Routine Maintenance Task
+#\Microsoft\Windows\SkyDrive\Idle Sync Maintenance Task
+
+# Google Chrome - manual check for updates
+\GoogleUpdateTaskMachineCore
+\GoogleUpdateTaskMachineUA
+
+# Fix: 'Windows Store failed to sync machine licenses. Result code 0x80070490'
+#\Microsoft\Windows\WS\WSRefreshBannedAppsListTask
+
+#\Microsoft\Windows\Customer Experience Improvement Program\Consolidator
+#\Microsoft\Windows\Wininet\CacheTask
+
+# OneDrive update task
+\OneDrive Standalone Update Task v2
+
+# Misc
+\Microsoft\Windows\Windows Media Sharing\UpdateLibrary
+\Microsoft\Windows\HelloFace\FODCleanupTask
+\Microsoft\Windows\Feedback\Siuf\DmClient
+\CCleaner Update
+
+# Visual Studio 2019
+\Microsoft\VisualStudio\Updates\BackgroundDownload

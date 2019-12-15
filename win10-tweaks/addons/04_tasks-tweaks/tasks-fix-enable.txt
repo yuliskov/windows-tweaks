@@ -1,0 +1,14 @@
+# Set to default
+
+# High CPU utilization fix
+# NOTE: this also disables periodic update check
+# NOTE: protected task (can't disable)
+\Microsoft\Windows\WindowsUpdate\Scheduled Start
+
+# Could cause high CPU load
+\Microsoft\Windows\InstallService\ScanForUpdates
+\Microsoft\Windows\InstallService\ScanForUpdatesAsUser
+\Microsoft\Windows\SettingSync\NetworkStateChangeTask
+\Microsoft\Windows\Wininet\CacheTask
+\Microsoft\Windows\LanguageComponentsInstaller\Installation
+\Microsoft\Windows\LanguageComponentsInstaller\ReconcileLanguageResources

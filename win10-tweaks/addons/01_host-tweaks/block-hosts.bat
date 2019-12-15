@@ -29,6 +29,12 @@ REM Import external utils here
 set HOSTS=%DATA_DIR%\hosts.exe
 set HOSTS_FILE=%~n0.txt
 
+REM Doing backup one time only
+if not exist "%WinDir%\System32\drivers\etc\hosts.bak" copy /y "%WinDir%\System32\drivers\etc\hosts" "%WinDir%\System32\drivers\etc\hosts.bak" >nul
+
+REM Copy template
+copy /y "%DATA_DIR%\hosts.origin" "%WinDir%\System32\drivers\etc\hosts" >nul
+
 for /F "usebackq tokens=*" %%A in ("%HOSTS_FILE%") do call :CheckAndAddHost %%A
 
 goto End

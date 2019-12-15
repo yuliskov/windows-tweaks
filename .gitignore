@@ -1,3 +1,4 @@
+*.disabled
 bak/
 tmp/
 *.bak
@@ -8,3 +9,4 @@ tmp/
 lang-tweaks.reg
 reg-tweaks-lang.reg
 reg-tweaks-misc.reg
+reg-tweaks-my.reg

@@ -23,36 +23,43 @@ goto :eof
 
 REM ================================================================
 
-REM sync task in tray that was appeared surpraisingly (process: msosync.exe)
-REM schtasks /Delete /TN "\Microsoft Office 15 Sync Maintenance for %ComputerName%-%UserName% %ComputerName%" /F >nul 2>&1
-REM path: C:\Program Files\Microsoft Office\Office15\MsoSync.exe
-schtasks /Change /DISABLE /TN "\Microsoft Office 15 Sync Maintenance for %ComputerName%-%UserName% %ComputerName%" >nul 2>nul
-schtasks /Change /DISABLE /TN "\Microsoft\Office\Office 15 Subscription Heartbeat" >nul 2>nul
-taskkill /im msosync.exe /f 2>nul
+set TASKS_FILE_DISABLE=%~n0-disable.txt
 
-REM Adobe (example: \AdobeAAMUpdater-1.0-DESKTOP-G03L3IK-UserName)
-schtasks /Delete /TN "\AdobeAAMUpdater-1.0-%ComputerName%-%UserName%" /F 2>nul
+set TASKS_FILE_ENABLE=%~n0-enable.txt
 
-REM REM cause number of DistributedCOM errors in event log?
-REM schtasks /Delete /TN "\Microsoft\Windows\SkyDrive\Routine Maintenance Task" /F 2>nul
-REM schtasks /Delete /TN "\Microsoft\Windows\SkyDrive\Idle Sync Maintenance Task" /F 2>nul
+REM prepare for fix
+taskkill /im msosync.exe /f >nul 2>nul
 
-REM Google Chrome - manual check for updates
-schtasks /Change /DISABLE /TN "\GoogleUpdateTaskMachineCore" >nul 2>nul
-schtasks /Change /DISABLE /TN "\GoogleUpdateTaskMachineUA" >nul 2>nul
+for /F "usebackq tokens=*" %%A in ("%TASKS_FILE_DISABLE%") do call :DisableTask %%A
 
+for /F "usebackq tokens=*" %%A in ("%TASKS_FILE_ENABLE%") do call :EnableTask %%A
 
-REM REM fix: "Windows Store failed to sync machine licenses. Result code 0x80070490"
-REM schtasks /Change /DISABLE /TN "\Microsoft\Windows\WS\WSRefreshBannedAppsListTask" >nul
+goto End
 
-REM schtasks /Change /DISABLE /TN "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator" >nul
-REM schtasks /Change /DISABLE /TN "\Microsoft\Windows\Wininet\CacheTask" >nul
+:DisableTask
+	set THE_TASK=%*
 
-REM OneDrive update task
-schtasks /Change /DISABLE /TN "\OneDrive Standalone Update Task v2" >nul 2>nul
+	if NOT "%THE_TASK%"=="%THE_TASK:#=%" (
+		REM Comment has been found... skipping...
+		goto :eof
+	)
 
-REM Misc
-schtasks /Change /DISABLE /TN "\Microsoft\Windows\Windows Media Sharing\UpdateLibrary" >nul 2>nul
-schtasks /Change /DISABLE /TN "\Microsoft\Windows\HelloFace\FODCleanupTask" >nul 2>nul
-schtasks /Change /DISABLE /TN "\Microsoft\Windows\Feedback\Siuf\DmClient" >nul 2>nul
-schtasks /Change /DISABLE /TN "\CCleaner Update" >nul 2>nul
+	REM echo disabling %THE_TASK%...
+
+	schtasks /Change /DISABLE /TN "%THE_TASK%" >nul 2>nul
+goto :eof
+
+:EnableTask
+	set THE_TASK=%*
+
+	if NOT "%THE_TASK%"=="%THE_TASK:#=%" (
+		REM Comment has been found... skipping...
+		goto :eof
+	)
+
+	REM echo disabling %THE_TASK%...
+
+	schtasks /Change /ENABLE /TN "%THE_TASK%" >nul 2>nul
+goto :eof
+
+:End

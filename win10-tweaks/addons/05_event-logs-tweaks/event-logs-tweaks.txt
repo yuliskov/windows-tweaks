@@ -1,0 +1,4 @@
+# Disable following logs
+
+# File around 1GB
+Microsoft-Windows-PowerShell/Admin
