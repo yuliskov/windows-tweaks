@@ -182,36 +182,3 @@ MsiExec.exe /X{90160000-001F-0845-1000-0000000FF1CE} /passive /quiet
 MsiExec.exe /X{90160000-001F-0C0A-1000-0000000FF1CE} /passive /quiet
 MsiExec.exe /X{90160000-001F-0C1A-1000-0000000FF1CE} /passive /quiet
 MsiExec.exe /X{90160000-001F-141A-1000-0000000FF1CE} /passive /quiet
-
-
-REM Uninstall some of the Windows 10’s Built-in Apps
-REM https://www.howtogeek.com/224798/how-to-uninstall-windows-10s-built-in-apps-and-how-to-reinstall-them/
-REM You can easily reinstall them with this command: 
-REM Get-AppxPackage -AllUsers| Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
-REM More info: https://github.com/W4RH4WK/Debloat-Windows-10
-REM list packages: Get-AppxPackage -AllUsers | out-string -stream | select-string "^Name"
-powershell -Command "Get-AppxPackage *zunemusic* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *bingsports* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *3dbuilder* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *officehub* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *solitairecollection* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *windowsphone* | Remove-AppxPackage"
-REM not enough permission
-REM powershell -Command "Get-AppxPackage *people* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *windowsmaps* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *windowscommunicationsapps* | Remove-AppxPackage"
-REM Mixed Reality Portal (error when trying to uninstall)
-REM powershell -Command "Get-AppxPackage *holographic* | Remove-AppxPackage"
-REM Mixed Reality First Run (shown in Start Menu as ms-resource:AppName/Text)
-REM More info: https://winaero.com/blog/uninstall-mixed-reality-portal-windows-10/
-REM powershell -Command "Get-AppxPackage *holographicfirstrun* | Remove-AppxPackage"
-REM SMS app
-powershell -Command "Get-AppxPackage *messaging* | Remove-AppxPackage"
-REM Microsoft Phone app (do call, answer, etc)
-powershell -Command "Get-AppxPackage *commsphone* | Remove-AppxPackage"
-REM 'XBox Game Bar' and other stuff (throws error)
-powershell -Command "Get-AppxPackage *xbox* | Remove-AppxPackage" 2>nul
-REM 'Your Phone' app
-REM powershell -Command "Get-AppxPackage *yourphone* | Remove-AppxPackage"
-REM Skype
-powershell -Command "Get-AppxPackage *skype* | Remove-AppxPackage"

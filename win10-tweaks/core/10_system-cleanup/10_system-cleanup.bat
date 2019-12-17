@@ -23,27 +23,17 @@ goto :eof
 
 REM ================================================================
 
-echo Cleaning System...
-
-echo Running Disk Cleanup...
-
-if not exist "%SystemDrive%\Windows.old" goto NO_WINDOWS_OLD
+if not exist "%SystemDrive%\Windows.old" goto NO_DELETE
 
 SET /P AREYOUSURE=Remove Windows.old directory (Y/[N])?
-IF /I "%AREYOUSURE%" NEQ "Y" GOTO NO_CLEANUP
+IF /I "%AREYOUSURE%" NEQ "Y" GOTO NO_DELETE
 
-:NO_WINDOWS_OLD
-
+echo Removing old Windows directory...
 rmdir /s /q "%SystemDrive%\Windows.old" 2>nul >nul
 
-REM REM Import Disk Cleanup settings
-REM reg import cleanmgr.reg >nul
+:NO_DELETE
 
-REM REM NOTE: Runs tooo long!
-REM REM Uncheck Defender, Temporal Files
-REM cleanmgr /sagerun:1
-
-:NO_CLEANUP
+REM ================================================================
 
 REM REM remove driver backups (view: pnputil -e)
 REM REM NOTE: not active drivers (like printer ones) will be removed too
@@ -58,6 +48,30 @@ for /f %%E in ('wevtutil el') do wevtutil cl %%E 2>nul
 
 echo Cleaning WinSxS folder...
 DISM /Online /Cleanup-Image /StartComponentCleanup >nul
+
+REM ================================================================
+
+REM Run Windows Disk Cleanup utility 
+REM NOTE: Runs tooo long!
+
+if exist "run_disk_cleanup_y.cfg" goto START_CLEANUP
+if exist "run_disk_cleanup_n.cfg" goto NO_CLEANUP
+
+SET /P AREYOUSURE=Run Windows Disk Cleanup utility (Y/[N])?
+IF /I "%AREYOUSURE%" NEQ "Y" GOTO NO_CLEANUP
+
+:START_CLEANUP
+
+echo Running Disk Cleanup...
+
+REM Import Disk Cleanup settings
+reg import cleanmgr-settings.reg >nul 2>nul
+
+cleanmgr /sagerun:1
+
+:NO_CLEANUP
+
+REM ================================================================
 
 REM Fix broken files that may appear after previous commands
 

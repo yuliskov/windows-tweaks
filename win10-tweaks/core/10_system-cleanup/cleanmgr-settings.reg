@@ -55,7 +55,7 @@ Windows Registry Editor Version 5.00
 
 ; Weather widget will forget your city
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Temporary Files]
-"StateFlags0001"=dword:00000000
+"StateFlags0001"=dword:00000002
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Temporary Setup Files]
 "StateFlags0001"=dword:00000002
@@ -74,7 +74,7 @@ Windows Registry Editor Version 5.00
 
 ; Weather widget will forget your city
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Windows Defender]
-"StateFlags0001"=dword:00000000
+"StateFlags0001"=dword:00000002
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Windows Error Reporting Archive Files]
 "StateFlags0001"=dword:00000002

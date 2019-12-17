@@ -127,7 +127,8 @@ IF /I "%AREYOUSURE%" NEQ "Y" GOTO NO_DEFRAG
 :START_DEFRAG
 
 echo Starting defragmentation...
-%DATA_DIR%\defrag.exe -c
+
+defrag /c >nul 2>nul
 
 :NO_DEFRAG
 
