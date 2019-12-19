@@ -32,6 +32,7 @@ IF [%DAY%]==[Mon] IF NOT EXIST "%AppData%\Lock_%YYYYMMDD%.lck" (
 
 REM 'start' to use short path
 set DATA_DIR=%~dp0data
+set CONFIG_DIR=%~dp0config
 SET CCLEANER_DIR=%~dp0CCleaner
 SET CCLEANER=ccleaner64.exe
 SET NIRCMD=nircmd-x64.exe
@@ -118,8 +119,8 @@ goto WINDOWS_END
 
 :WINDOWS_END
 
-if exist "defrag_disks_y.cfg" goto START_DEFRAG
-if exist "defrag_disks_n.cfg" goto NO_DEFRAG
+if exist "%CONFIG_DIR%\defrag_disks_y.cfg" goto START_DEFRAG
+if exist "%CONFIG_DIR%\defrag_disks_n.cfg" goto NO_DEFRAG
 
 SET /P AREYOUSURE=Defragment your disks (Y/[N])?
 IF /I "%AREYOUSURE%" NEQ "Y" GOTO NO_DEFRAG

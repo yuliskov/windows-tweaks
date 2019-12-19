@@ -54,8 +54,8 @@ REM ================================================================
 REM Run Windows Disk Cleanup utility 
 REM NOTE: Runs tooo long!
 
-if exist "run_disk_cleanup_y.cfg" goto START_CLEANUP
-if exist "run_disk_cleanup_n.cfg" goto NO_CLEANUP
+if exist "%CONFIG_DIR%\run_disk_cleanup_y.cfg" goto START_CLEANUP
+if exist "%CONFIG_DIR%\run_disk_cleanup_n.cfg" goto NO_CLEANUP
 
 SET /P AREYOUSURE=Run Windows Disk Cleanup utility (Y/[N])?
 IF /I "%AREYOUSURE%" NEQ "Y" GOTO NO_CLEANUP
@@ -75,8 +75,8 @@ REM ================================================================
 
 REM Fix broken files that may appear after previous commands
 
-if exist "fix_broken_files_y.cfg" goto START_FIX
-if exist "fix_broken_files_n.cfg" goto NO_FIX
+if exist "%CONFIG_DIR%\fix_broken_files_y.cfg" goto START_FIX
+if exist "%CONFIG_DIR%\fix_broken_files_n.cfg" goto NO_FIX
 
 SET /P AREYOUSURE=Fix broken files (Y/[N])?
 IF /I "%AREYOUSURE%" NEQ "Y" GOTO NO_FIX
