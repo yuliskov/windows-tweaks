@@ -27,3 +27,4 @@ echo Applying registry tweaks...
 
 set REG_TWEAKS_TEMPLATE=*.reg
 for /r %%f in ("%REG_TWEAKS_TEMPLATE%") do reg import "%%f" >nul 2>nul
+
