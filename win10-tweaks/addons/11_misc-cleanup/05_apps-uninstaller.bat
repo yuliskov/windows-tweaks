@@ -37,7 +37,7 @@ REM Microsoft Visual C++ 2005 Redistributable (x64) 8.0.56336
 MsiExec.exe /X{071c9b48-7c32-4621-a0ac-3f809523288f} /passive /quiet
 
 REM Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.17
-msiexec /X{9A25302D-30C0-39D9-BD6F-21E6EC160475} /passive /quiet
+MsiExec.exe /X{9A25302D-30C0-39D9-BD6F-21E6EC160475} /passive /quiet
 
 REM Microsoft Visual C++ 2008 Redistributable - x64 9.0.30729.17
 MsiExec.exe /X{8220EEFE-38CD-377E-8595-13398D740ACE} /passive /quiet
@@ -63,11 +63,21 @@ MsiExec.exe /X{5454083B-1308-4485-BF17-111000038701} /passive /quiet
 REM Microsoft Visual C++ 2013 Redistributable (x86) - 12.0.30501
 "C:\ProgramData\Package Cache\{f65db027-aff3-4070-886a-0d87064aabb1}\vcredist_x86.exe" /uninstall /quiet 2>nul
 
-REM Microsoft Visual C++ 2012 Redistributable (x64-ru) - 11.0.61030
-"C:\ProgramData\Package Cache\{a2199617-3609-410f-a8e8-e8806c73545b}\vcredist_x64.exe" /uninstall /quiet 2>nul
-
-REM Microsoft Visual C++ 2013 Redistributable (x64-ru) - 12.0.21005.1
+REM Microsoft Visual C++ 2013 Redistributable (x64) - 12.0.21005
 "C:\ProgramData\Package Cache\{51adbf11-493f-431c-a862-967a0fae2944}\vcredist_x64.exe" /uninstall /quiet 2>nul
+"C:\ProgramData\Package Cache\{7f51bdb9-ee21-49ee-94d6-90afc321780e}\vcredist_x64.exe" /uninstall /quiet 2>nul
+
+REM Microsoft Visual C++ 2013 x64 Additional Runtime - 12.0.21005
+MsiExec.exe /X{929FBD26-9020-399B-9A7A-751D61F0B942} /passive /quiet
+
+REM Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.21005
+MsiExec.exe /X{A749D8E6-B613-3BE3-8F5F-045C84EBA29B} /passive /quiet
+
+REM Microsoft Visual C++ 2012 Redistributable (x64) - 11.0.51106
+"C:\ProgramData\Package Cache\{6e8f74e0-43bd-4dce-8477-6ff6828acc07}\vcredist_x64.exe" /uninstall /quiet 2>nul
+
+REM REM Microsoft Visual C++ 2012 Redistributable (x64) - 11.0.61030
+REM "C:\ProgramData\Package Cache\{a2199617-3609-410f-a8e8-e8806c73545b}\vcredist_x64.exe" /uninstall /quiet 2>nul
 
 REM REM Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161 (MSIAfterburner)
 REM MsiExec.exe /X{9BE518E6-ECC6-35A9-88E4-87755C07200F} /passive
