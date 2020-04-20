@@ -1,3 +1,6 @@
+# ???
+\%UserSid%\DataSenseLiveTileTask
+
 # Fix wsappx high CPU load
 \Microsoft\Windows\Maps\MapsUpdateTask
 
@@ -29,6 +32,8 @@
 # Google Chrome - manual check for updates
 \GoogleUpdateTaskMachineCore
 \GoogleUpdateTaskMachineUA
+\GoogleUpdateTaskUser%UserSid%Core
+\GoogleUpdateTaskUser%UserSid%UA
 
 # Fix: 'Windows Store failed to sync machine licenses. Result code 0x80070490'
 #\Microsoft\Windows\WS\WSRefreshBannedAppsListTask

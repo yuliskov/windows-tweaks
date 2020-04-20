@@ -27,6 +27,9 @@ set TASKS_FILE_DISABLE=%~n0-disable.txt
 
 set TASKS_FILE_ENABLE=%~n0-enable.txt
 
+REM Create UserSid env var: https://misctechmusings.com/batch-get-sid
+for /f %%i in ('wmic useraccount where name^="%UserName%" get sid ^| findstr ^S\-d*') do set UserSid=%%i
+
 REM prepare for fix
 taskkill /im msosync.exe /f >nul 2>nul
 
@@ -44,7 +47,7 @@ goto End
 		goto :eof
 	)
 
-	REM echo disabling %THE_TASK%...
+	REM for /f "tokens=2 delims= " %%x in ('schtasks /query /fo list ^| findstr "%THE_TASK%"') do echo disabling "%%x" "%THE_TASK%"
 
 	schtasks /Change /DISABLE /TN "%THE_TASK%" >nul 2>nul
 goto :eof
@@ -57,7 +60,7 @@ goto :eof
 		goto :eof
 	)
 
-	REM echo disabling %THE_TASK%...
+	REM for /f "tokens=2 delims= " %%x in ('schtasks /query /fo list ^| findstr "%THE_TASK%"') do echo enabling "%%x" "%THE_TASK%"
 
 	schtasks /Change /ENABLE /TN "%THE_TASK%" >nul 2>nul
 goto :eof
