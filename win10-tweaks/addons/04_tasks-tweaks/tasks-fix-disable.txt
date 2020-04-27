@@ -1,4 +1,10 @@
-# ???
+# Could cause high CPU load
+\Microsoft\Windows\LanguageComponentsInstaller\Installation
+\Microsoft\Windows\LanguageComponentsInstaller\ReconcileLanguageResources
+\Microsoft\Windows\InstallService\ScanForUpdates
+\Microsoft\Windows\InstallService\ScanForUpdatesAsUser
+
+# Could popup when running other apps
 \%UserSid%\DataSenseLiveTileTask
 
 # Fix wsappx high CPU load

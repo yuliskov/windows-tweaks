@@ -6,9 +6,9 @@
 \Microsoft\Windows\WindowsUpdate\Scheduled Start
 
 # Could cause high CPU load
-\Microsoft\Windows\InstallService\ScanForUpdates
-\Microsoft\Windows\InstallService\ScanForUpdatesAsUser
+#\Microsoft\Windows\LanguageComponentsInstaller\Installation
+#\Microsoft\Windows\LanguageComponentsInstaller\ReconcileLanguageResources
+#\Microsoft\Windows\InstallService\ScanForUpdates
+#\Microsoft\Windows\InstallService\ScanForUpdatesAsUser
 \Microsoft\Windows\SettingSync\NetworkStateChangeTask
 \Microsoft\Windows\Wininet\CacheTask
-\Microsoft\Windows\LanguageComponentsInstaller\Installation
-\Microsoft\Windows\LanguageComponentsInstaller\ReconcileLanguageResources

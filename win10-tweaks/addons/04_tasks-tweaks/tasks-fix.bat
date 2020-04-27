@@ -1,5 +1,7 @@
 @echo off
 
+REM Check active tasks with Nirsoft SystemTools\TaskSchedulerView
+
 echo Running %~n0...
 
 cd /d "%~dp0"
