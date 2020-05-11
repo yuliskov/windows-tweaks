@@ -23,6 +23,9 @@ goto :eof
 
 REM ================================================================
 
+REM ========= Full list packages command =================
+REM ========= Get-AppxPackage | Select Name, PackageFullName >"$env:userprofile\Desktop\Apps_List.txt" =========
+
 REM Uninstall some of the Windows 10’s Built-in Apps
 REM https://www.howtogeek.com/224798/how-to-uninstall-windows-10s-built-in-apps-and-how-to-reinstall-them/
 REM You can easily reinstall them with this command: 
@@ -54,3 +57,18 @@ REM 'Your Phone' app
 REM powershell -Command "Get-AppxPackage *yourphone* | Remove-AppxPackage"
 REM Skype
 powershell -Command "Get-AppxPackage *skype* | Remove-AppxPackage"
+
+
+powershell -Command "Get-AppxPackage Microsoft.WindowsFeedbackHub | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage Microsoft.WebpImageExtension | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage Microsoft.VP9VideoExtensions | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage Microsoft.WebMediaExtensions  | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage Microsoft.Office.OneNote | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage Microsoft.YourPhone | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage Microsoft.Print3D | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage Microsoft.People | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage Microsoft.HEIFImageExtension | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage Microsoft.Wallet | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage Microsoft.MixedReality.Portal | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage Microsoft.Microsoft3DViewer | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage Microsoft.MicrosoftStickyNotes | Remove-AppxPackage"

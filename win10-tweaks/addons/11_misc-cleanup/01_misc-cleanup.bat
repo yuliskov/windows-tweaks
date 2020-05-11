@@ -58,3 +58,5 @@ REM rmdir /s /q "%UserProfile%\.gradle\wrapper" 2>nul >nul
 
 REM Genymotion logs
 del "%UserProfile%\genymotion-logs-*.zip" 2>nul
+
+rmdir /s /q "%AppData%\PyCmd\tmp" 2>nul >nul

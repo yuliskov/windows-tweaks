@@ -24,9 +24,12 @@ SET CLOSEPROCESS=%~dp0/../../../data/closeprocess
 
 REM TODO: "WebStorm", "IntelliJ", "CLion", "Rider", "GoLand", "PhpStorm"
 
-for /d %%f in ("%UserProfile%\.IntelliJIdea*") do call :IdeaLicenseFix %%f idea
-for /d %%f in ("%UserProfile%\.CLion*") do call :IdeaLicenseFix %%f clion
-for /d %%f in ("%UserProfile%\.Rider*") do call :IdeaLicenseFix %%f rider
+for /d %%f in ("%UserProfile%\.IntelliJIdea*") do call :IdeaLicenseFix "%%f" idea
+for /d %%f in ("%AppData%\JetBrains\IntelliJIdea*") do call :IdeaLicenseFix2 "%%f" idea
+for /d %%f in ("%UserProfile%\.CLion*") do call :IdeaLicenseFix "%%f" clion
+for /d %%f in ("%AppData%\JetBrains\CLion*") do call :IdeaLicenseFix2 "%%f" clion
+for /d %%f in ("%UserProfile%\.Rider*") do call :IdeaLicenseFix "%%f" rider
+for /d %%f in ("%AppData%\JetBrains\Rider*") do call :IdeaLicenseFix2 "%%f" rider
 
 REM comment line below to disable task creation
 REM call :SetupTask
@@ -36,7 +39,13 @@ goto End
 :IdeaLicenseFix
     set IDEA_PROFILE_DIR=%1
     set EXE_NAME=%2
-    echo Processing %IDEA_PROFILE_DIR%...
+	call :IdeaLicenseFix2 "%IDEA_PROFILE_DIR%\config" %EXE_NAME%    
+goto :eof
+
+:IdeaLicenseFix2
+    set IDEA_CONFIG_DIR=%1
+    set EXE_NAME=%2
+    echo Processing %IDEA_CONFIG_DIR%...
 
     REM 0. Closing JetBrains processes...
     call %CLOSEPROCESS% %EXE_NAME%64.exe
@@ -44,11 +53,11 @@ goto End
 
     REM 1. Remove trial directory
 
-    rmdir "%IDEA_PROFILE_DIR%\config\eval" /s /q 2>nul >nul
+    rmdir "%IDEA_CONFIG_DIR%\eval" /s /q 2>nul >nul
 
     REM 2. Edit files (remove trial lines)
 
-    set OPTIONS=%IDEA_PROFILE_DIR%\config\options
+    set OPTIONS=%IDEA_CONFIG_DIR%\options
 
     for %%x in (options other) do (
         if exist "%OPTIONS%\%%x.xml" (
