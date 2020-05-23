@@ -32,43 +32,50 @@ REM You can easily reinstall them with this command:
 REM Get-AppxPackage -AllUsers| Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
 REM More info: https://github.com/W4RH4WK/Debloat-Windows-10
 REM list packages: Get-AppxPackage -AllUsers | out-string -stream | select-string "^Name"
-powershell -Command "Get-AppxPackage *zunemusic* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *bingsports* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *3dbuilder* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *officehub* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *solitairecollection* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *windowsphone* | Remove-AppxPackage"
-REM not enough permission
-REM powershell -Command "Get-AppxPackage *people* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *windowsmaps* | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage *windowscommunicationsapps* | Remove-AppxPackage"
+
 REM Mixed Reality Portal (error when trying to uninstall)
 REM powershell -Command "Get-AppxPackage *holographic* | Remove-AppxPackage"
 REM Mixed Reality First Run (shown in Start Menu as ms-resource:AppName/Text)
 REM More info: https://winaero.com/blog/uninstall-mixed-reality-portal-windows-10/
 REM powershell -Command "Get-AppxPackage *holographicfirstrun* | Remove-AppxPackage"
-REM SMS app
-powershell -Command "Get-AppxPackage *messaging* | Remove-AppxPackage"
-REM Microsoft Phone app (do call, answer, etc)
-powershell -Command "Get-AppxPackage *commsphone* | Remove-AppxPackage"
+
 REM 'XBox Game Bar' and other stuff (throws error)
-powershell -Command "Get-AppxPackage *xbox* | Remove-AppxPackage" 2>nul
-REM 'Your Phone' app
-REM powershell -Command "Get-AppxPackage *yourphone* | Remove-AppxPackage"
-REM Skype
-powershell -Command "Get-AppxPackage *skype* | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage Microsoft.XboxIdentityProvider | Remove-AppxPackage" 2>nul
+powershell -Command "Get-AppxPackage Microsoft.XboxGameCallableUI | Remove-AppxPackage" 2>nul
+powershell -Command "Get-AppxPackage Microsoft.XboxSpeechToTextOverlay | Remove-AppxPackage" 2>nul
+powershell -Command "Get-AppxPackage Microsoft.XboxGamingOverlay | Remove-AppxPackage" 2>nul
+powershell -Command "Get-AppxPackage Microsoft.XboxGameOverlay | Remove-AppxPackage" 2>nul
+powershell -Command "Get-AppxPackage Microsoft.XboxApp | Remove-AppxPackage" 2>nul
+powershell -Command "Get-AppxPackage Microsoft.Xbox.TCUI | Remove-AppxPackage" 2>nul
 
-
+powershell -Command "Get-AppxPackage Microsoft.ZuneMusic | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage Microsoft.MicrosoftSolitaireCollection | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage Microsoft.WindowsMaps | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage microsoft.windowscommunicationsapps | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage Microsoft.SkypeApp | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage Microsoft.WindowsFeedbackHub | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage Microsoft.WebpImageExtension | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage Microsoft.VP9VideoExtensions | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage Microsoft.WebMediaExtensions  | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage Microsoft.HEIFImageExtension | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage Microsoft.MicrosoftOfficeHub | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage Microsoft.Office.OneNote | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage Microsoft.YourPhone | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage Microsoft.Print3D | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage Microsoft.People | Remove-AppxPackage"
-powershell -Command "Get-AppxPackage Microsoft.HEIFImageExtension | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage Microsoft.Wallet | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage Microsoft.MixedReality.Portal | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage Microsoft.Microsoft3DViewer | Remove-AppxPackage"
 powershell -Command "Get-AppxPackage Microsoft.MicrosoftStickyNotes | Remove-AppxPackage"
+
+
+REM Not present anymore?
+
+REM powershell -Command "Get-AppxPackage *bingsports* | Remove-AppxPackage"
+REM powershell -Command "Get-AppxPackage *3dbuilder* | Remove-AppxPackage"
+REM powershell -Command "Get-AppxPackage *windowsphone* | Remove-AppxPackage"
+
+REM REM SMS app
+REM powershell -Command "Get-AppxPackage *messaging* | Remove-AppxPackage"
+REM REM Microsoft Phone app (do call, answer, etc)
+REM powershell -Command "Get-AppxPackage *commsphone* | Remove-AppxPackage"

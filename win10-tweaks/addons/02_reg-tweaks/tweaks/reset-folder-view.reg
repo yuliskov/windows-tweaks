@@ -1,0 +1,32 @@
+Windows Registry Editor Version 5.00
+
+; Reset all folders!
+; [-HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags]
+; [-HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\BagMRU]
+
+; Reset desktop icon's positions!
+; [-HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\Shell\Bags]
+; [-HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\Shell\BagMRU]
+
+; Apply simple view to any folder in explorer
+[HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell]
+"FolderType"="NotSpecified"
+
+; Explorer drive folder (set view to Content)
+[-HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\1]
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\1\Shell\{5C4F28B5-F869-4E84-8E60-F11DB97C5CC7}]
+"LogicalViewMode"=dword:5
+"Mode"=dword:8
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\1\ComDlg\{5C4F28B5-F869-4E84-8E60-F11DB97C5CC7}]
+"LogicalViewMode"=dword:5
+"Mode"=dword:8
+
+; Download folder view (set group by to None)
+[HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\2\Shell\{5C4F28B5-F869-4E84-8E60-F11DB97C5CC7}]
+"GroupByKey:FMTID"="{00000000-0000-0000-0000-000000000000}"
+"GroupByKey:PID"=dword:0
+"GroupView"=dword:0
+[HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\9\Shell\{5C4F28B5-F869-4E84-8E60-F11DB97C5CC7}]
+"GroupByKey:FMTID"="{00000000-0000-0000-0000-000000000000}"
+"GroupByKey:PID"=dword:0
+"GroupView"=dword:0

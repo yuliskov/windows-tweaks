@@ -27,6 +27,12 @@ REM Uninstall registry paths:
 REM HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\
 REM HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\
 
+
+REM Uninstall OneDrive
+taskkill /f /im OneDrive.exe 2>nul
+%SystemRoot%\System32\OneDriveSetup.exe /uninstall 2>nul
+%SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall 2>nul
+
 REM Microsoft Visual C++ 2005 Redistributable
 MsiExec.exe /X{710f4c1c-cc18-4c49-8cbf-51240c89a1a2} /passive /quiet
 

@@ -1,0 +1,15 @@
+Windows Registry Editor Version 5.00
+
+; Disable internet search results in start menu
+
+; Those entries are completely missing from the "Search" registry key, so you can safely delete them should you want to revert.
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search]
+"BingSearchEnabled"=dword:0
+"AllowSearchToUseLocation"=dword:0
+"CortanaConsent"=dword:0
+
+; Disable "Recent Items", "Frequent Places" and "Taskbar jump list" for All Users
+
+; Set 0 to enable
+; [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+; "NoRecentDocsHistory"=dword:1

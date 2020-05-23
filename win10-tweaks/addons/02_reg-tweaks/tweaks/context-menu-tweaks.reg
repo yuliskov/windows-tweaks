@@ -1,0 +1,67 @@
+Windows Registry Editor Version 5.00
+
+;========================= CONTEXT MENU ================================
+
+; Remove "Restore Previous Versions" context menu
+[-HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}]
+[-HKEY_CLASSES_ROOT\Directory\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}]
+[-HKEY_CLASSES_ROOT\Drive\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}]
+; [-HKEY_CLASSES_ROOT\CLSID\{450D8FBA-AD25-11D0-98A8-0800361B1103}\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}]
+
+; Remove "Compatibility" context menu
+[HKEY_CLASSES_ROOT\exefile\shellex\ContextMenuHandlers\Compatibility]
+@="-{1d27f844-3a1f-4410-85ac-14651078412d}"
+
+; Remove "Cast to Device" context menu
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked]
+"{7AD84985-87B4-4a16-BE58-8B72A5B390F7}"="Play to Menu"
+
+; Remove "Share" context menu
+[-HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\ModernSharing]
+
+; Reduce number of context menu items for most used files
+[-HKEY_CLASSES_ROOT\SystemFileAssociations\video\shell\Enqueue]
+[-HKEY_CLASSES_ROOT\SystemFileAssociations\video\shell\Play]
+[-HKEY_CLASSES_ROOT\SystemFileAssociations\text\shell\edit]
+[-HKEY_CLASSES_ROOT\inifile\shell\print]
+[-HKEY_CLASSES_ROOT\txtfile\shell\print]
+[-HKEY_CLASSES_ROOT\regfile\shell\print]
+[-HKEY_CLASSES_ROOT\regfile\shell\edit]
+[-HKEY_CLASSES_ROOT\batfile\shell\print]
+[-HKEY_CLASSES_ROOT\batfile\shell\edit]
+[-HKEY_CLASSES_ROOT\VBSFile\shell\print]
+[-HKEY_CLASSES_ROOT\VBSFile\shell\edit]
+[-HKEY_CLASSES_ROOT\JSFile\Shell\Print]
+[-HKEY_CLASSES_ROOT\JSFile\Shell\Edit]
+; [-HKEY_CLASSES_ROOT\JSFile\Shell\Open]
+[-HKEY_CLASSES_ROOT\JSFile\Shell\Open2]
+[-HKEY_CLASSES_ROOT\Directory\shell\Bridge]
+[-HKEY_CLASSES_ROOT\SystemFileAssociations\image\shell\edit]
+[-HKEY_CLASSES_ROOT\SystemFileAssociations\image\shell\print]
+
+[HKEY_CLASSES_ROOT\JSFile\.js]
+"PerceivedType"="text"
+
+; Clear google chrome admin context menu
+[-HKEY_CLASSES_ROOT\Chrome\.exe\shell\opennewwindow]
+[-HKEY_CLASSES_ROOT\Chrome\.exe\shell\run]
+
+; Remove "SkyDrive Pro" context menu
+[-HKEY_CLASSES_ROOT\AllFilesystemObjects\shell\SPFS.ContextMenu]
+
+; HOW TO FIND RIGHT REG KEY
+; For example, for PDF documents, go to HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.pdf and look at the default value. 
+; On my computer, the value is AcroExch.Document. 
+; So then you would go to HKEY_LOCAL_MACHINE\SOFTWARE\Classes\AcroExch.Document\Shell and delete the print subkey.
+
+; Word files (docx etc) context menu
+[HKEY_CLASSES_ROOT\Word.Document.12\shell\Edit]
+[HKEY_CLASSES_ROOT\Word.Document.12\shell\New]
+[HKEY_CLASSES_ROOT\Word.Document.12\shell\Print]
+
+; ; remove Powershell from the Shift+Right click menu (command should be runned from the TrustedIntaller) 
+; [HKEY_CLASSES_ROOT\Directory\shell\Powershell]
+; "ShowBasedOnVelocityId"=-
+; "HideBasedOnVelocityId"=dword:006698a6
+
+;========================= END CONTEXT MENU ================================

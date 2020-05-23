@@ -1,0 +1,35 @@
+Windows Registry Editor Version 5.00
+
+;=========================  AUTOSTART  =================================
+
+[-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AdobeARMservice]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run]
+"SunJavaUpdateSched"=-
+"AdobeCS6ServiceManager"=-
+"Adobe ARM"=-
+"Adobe Acrobat Speed Launcher"=-
+"Adobe Creative Cloud"=-
+"Acrobat Assistant 8.0"=-
+"HP Software Update"=-
+"hpqSRMon"=-
+"ProductUpdater"=-
+"Autodesk Desktop App"=-
+
+; WindowsDefender - Windows Defender notification icon
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
+"SecurityHealth"=-
+"WindowsDefender"=-
+"AdobeCS6ServiceManager"=-
+"AdobeAAMUpdater-1.0"=-
+"RTHDVCPL"=-
+"HotKeysCmds"=-
+"IgfxTray"=-
+"Persistence"=-
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run]
+"AdobeBridge"=-
+"OneDriveSetup"=-
+"OneDrive"=-
+
+;========================= END AUTOSTART ==============================
