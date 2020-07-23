@@ -44,6 +44,8 @@ if %PROCESSOR_ARCHITECTURE%==x86 (
 SET CCLEANER=%CCLEANER_DIR%\%CCLEANER%
 SET NIRCMD=%NIRCMD_DIR%\%NIRCMD%
 
+if not exist "%CONFIG_DIR%" mkdir "%CONFIG_DIR%"
+
 REM Regular task command line. 'windows-tweaks' should be a full path
 REM wscript.exe "<windows-tweaks>\data\bootstrap.vbs" "<windows-tweaks>\run_tweaks.bat" task
 
@@ -119,19 +121,27 @@ goto WINDOWS_END
 
 :WINDOWS_END
 
-if exist "%CONFIG_DIR%\defrag_disks_y.cfg" goto START_DEFRAG
 if exist "%CONFIG_DIR%\defrag_disks_n.cfg" goto NO_DEFRAG
+if exist "%CONFIG_DIR%\defrag_disks_y.cfg" goto START_DEFRAG
 
 SET /P AREYOUSURE=Defragment your disks (Y/[N])?
 IF /I "%AREYOUSURE%" NEQ "Y" GOTO NO_DEFRAG
 
 :START_DEFRAG
 
+echo. > "%CONFIG_DIR%\defrag_disks_y.cfg"
+
 echo Starting defragmentation...
 
 defrag /c >nul 2>nul
 
+goto EXIT_DEFRAG
+
 :NO_DEFRAG
+
+echo. > "%CONFIG_DIR%\defrag_disks_n.cfg"
+
+:EXIT_DEFRAG
 
 echo ====================
 echo Finishing cleanup...

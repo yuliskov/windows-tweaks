@@ -68,6 +68,8 @@ IF /I "%AREYOUSURE%" NEQ "Y" GOTO NO_CLEANUP
 
 :START_CLEANUP
 
+echo. > "%CONFIG_DIR%\run_disk_cleanup_y.cfg"
+
 echo Running Disk Cleanup...
 
 REM Import Disk Cleanup settings
@@ -75,19 +77,27 @@ reg import cleanmgr-settings.reg >nul 2>nul
 
 cleanmgr /sagerun:1
 
+goto EXIT_CLEANUP
+
 :NO_CLEANUP
+
+echo. > "%CONFIG_DIR%\run_disk_cleanup_n.cfg"
+
+:EXIT_CLEANUP
 
 REM ================================================================
 
 REM Fix broken files that may appear after previous commands
 
-if exist "%CONFIG_DIR%\fix_broken_files_y.cfg" goto START_FIX
-if exist "%CONFIG_DIR%\fix_broken_files_n.cfg" goto NO_FIX
+if exist "%CONFIG_DIR%\fix_broken_files_y.cfg" goto START_FILES_FIX
+if exist "%CONFIG_DIR%\fix_broken_files_n.cfg" goto NO_FILES_FIX
 
 SET /P AREYOUSURE=Fix broken files (Y/[N])?
-IF /I "%AREYOUSURE%" NEQ "Y" GOTO NO_FIX
+IF /I "%AREYOUSURE%" NEQ "Y" GOTO NO_FILES_FIX
 
-:START_FIX
+:START_FILES_FIX
+
+echo. > "%CONFIG_DIR%\fix_broken_files_y.cfg"
 
 echo Fixing broken Distribution files...
 DISM /Online /Cleanup-image /Restorehealth >nul
@@ -95,5 +105,11 @@ DISM /Online /Cleanup-image /Restorehealth >nul
 echo Fixing broken System files...
 sfc /scannow >nul
 
-:NO_FIX
+goto EXIT_FILES_FIX
+
+:NO_FILES_FIX
+
+echo. > "%CONFIG_DIR%\fix_broken_files_n.cfg"
+
+:EXIT_FILES_FIX
 

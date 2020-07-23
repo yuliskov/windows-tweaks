@@ -55,9 +55,9 @@ Windows Registry Editor Version 5.00
 ; So then you would go to HKEY_LOCAL_MACHINE\SOFTWARE\Classes\AcroExch.Document\Shell and delete the print subkey.
 
 ; Word files (docx etc) context menu
-[HKEY_CLASSES_ROOT\Word.Document.12\shell\Edit]
-[HKEY_CLASSES_ROOT\Word.Document.12\shell\New]
-[HKEY_CLASSES_ROOT\Word.Document.12\shell\Print]
+[-HKEY_CLASSES_ROOT\Word.Document.12\shell\Edit]
+[-HKEY_CLASSES_ROOT\Word.Document.12\shell\New]
+[-HKEY_CLASSES_ROOT\Word.Document.12\shell\Print]
 
 ; ; remove Powershell from the Shift+Right click menu (command should be runned from the TrustedIntaller) 
 ; [HKEY_CLASSES_ROOT\Directory\shell\Powershell]

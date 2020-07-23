@@ -54,12 +54,6 @@ MsiExec.exe /X{4B6C7001-C7D6-3710-913E-5BC23FCE91E6} /passive /quiet
 REM Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.4148
 MsiExec.exe /X{1F1C2DFC-2D24-3E06-BCB8-725134ADF989} /passive /quiet
 
-REM Microsoft Visual C++ 2010  x64 Redistributable - 10.0.40219
-MsiExec.exe /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7} /passive /quiet
-
-REM Microsoft Visual C++ 2010  x32 Redistributable - 10.0.40219
-MsiExec.exe /X{F0C3E5D1-1ADE-321E-8167-68EF0DE699A5} /passive /quiet
-
 REM EFLC update 2
 MsiExec.exe /X{5454083B-1308-4485-BF17-111000038701} /passive /quiet
 
@@ -75,6 +69,12 @@ MsiExec.exe /X{929FBD26-9020-399B-9A7A-751D61F0B942} /passive /quiet
 
 REM Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.21005
 MsiExec.exe /X{A749D8E6-B613-3BE3-8F5F-045C84EBA29B} /passive /quiet
+
+REM Microsoft Visual C++ 2010  x64 Redistributable - 10.0.40219 (Adobe CS6)
+REM MsiExec.exe /X{1D8E6291-B0D5-35EC-8441-6616F567A0F7} /passive /quiet
+
+REM Microsoft Visual C++ 2010  x32 Redistributable - 10.0.40219 (Adobe CS6)
+REM MsiExec.exe /X{F0C3E5D1-1ADE-321E-8167-68EF0DE699A5} /passive /quiet
 
 REM Microsoft Visual C++ 2005 Redistributable - x86 8.0.56336 (GTA IV)
 REM MsiExec.exe /X{7299052b-02a4-4627-81f2-1818da5d550d} /passive /quiet
