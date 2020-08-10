@@ -1,54 +1,106 @@
 # KEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services
 # 0 = Boot, 1 = System, 2 = Automatic, 3 = Manual, 4 = Disabled, 5 and more = Unknown
 
+######################
 # Third party services
+######################
 
 # Autodesk (auto)
 AdAppMgrSvc
 FlexNet Licensing Service
+
 # Shell Hardware Detection - autoplay events
 ShellHWDetection
+
 # Data Usage (auto)
 DusmSvc
+
 # NVIDIA Display Driver Service (auto)
 nvUpdatusService
 nvsvc
 NVDisplay.ContainerLocalSystem
+
 # VirtualBox system service (auto-delayed)
 VBoxSDS
+
 # Skype Update Service
 SkypeUpdate
+
 # HP LaserJet Print
 Net Driver HPZ12
+
 # HP LaserJet Print
 Pml Driver HPZ12
+
 # Punk Buster game service
 PnkBstrA
+
 # Intel content protection service
 cphs
+
 # Freemake Video Converter service
 FreemakeVideoCapture
+
 # Google Chrome update
 gupdate
 gupdatem
 
+##################
 # Windows services
+##################
 
 # Touch Keyboard and Handwriting Panel Service - active when device attached (manual)
 # System service. Can't be stopped.
 TabletInputService
+
 # Device Association Service - pairing between the system and wired or wireless devices (auto-trigger)
 # Required for 'Add printer wizard'
 DeviceAssociationService
 
+#####################
 # Doesn't decided yet
+#####################
 
 # Autodesk (auto)
 #AdskLicensingService
+
 # Optimize Windows 10: https://www.tenforums.com/tutorials/26120-optimize-performance-windows-10-a.html
 # Superfetch Service (background caching, increase RAM usage)
 #SysMain
+
 # Windows Search - search indexing
 #WSearch
+
 # Offline Files - MS Office
 #CscService
+
+#####################
+# Warn. Don't disable
+#####################
+
+# Touch Keyboard and Handwriting Panel Service - active when device attached (manual)
+# System service. Can't be stopped.
+#TabletInputService
+
+# Device Association Service - pairing between the system and wired or wireless devices (auto-trigger)
+# 'Add printer wizard' required service
+#DeviceAssociationService
+
+# File History Service (manual-trigger)
+#fhsvc
+
+# Windows Push Notifications System Service (auto)
+#WpnService
+
+# Windows Push Notifications System User Service (auto)
+#WpnUserService
+
+# Clipboard User Service - Metro Apps Clipboard (manual)
+#cbdhsvc
+
+# Windows Font Cache service (auto)
+#FontCache
+
+# Web Account Manager - single sign-in for apps and services (manual)
+# Required for Microsoft Store
+#TokenBroker
