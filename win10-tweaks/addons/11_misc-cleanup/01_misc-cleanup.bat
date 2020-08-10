@@ -63,4 +63,5 @@ rmdir /s /q "%AppData%\PyCmd\tmp" 2>nul >nul
 
 REM Malware cleanup
 REM Task data: "cmd.exe" /c REG ADD HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run /f /v Yuriy /t REG_SZ /d "explorer.exe http://exinariuminix.info"
-reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run /v %UserName% /f
+reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run /v %UserName% /f 2>nul >nul
+reg delete HKEY_CURRENT_USER\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Run /v %UserName% /f 2>nul >nul
