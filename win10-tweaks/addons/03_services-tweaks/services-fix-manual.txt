@@ -18,7 +18,6 @@ DusmSvc
 # NVIDIA Display Driver Service (auto)
 nvUpdatusService
 nvsvc
-NVDisplay.ContainerLocalSystem
 
 # VirtualBox system service (auto-delayed)
 VBoxSDS
@@ -77,6 +76,10 @@ DeviceAssociationService
 #####################
 # Warn. Don't disable
 #####################
+
+# NVIDIA Display Driver Service (auto)
+# NVIDIA Control panel stops working 
+#NVDisplay.ContainerLocalSystem
 
 # Touch Keyboard and Handwriting Panel Service - active when device attached (manual)
 # System service. Can't be stopped.

@@ -73,6 +73,10 @@ FontCache3.0.0.0
 # Warn. Don't disable
 #####################
 
+# NVIDIA Display Driver Service (auto)
+# NVIDIA Control panel stops working 
+#NVDisplay.ContainerLocalSystem
+
 # Touch Keyboard and Handwriting Panel Service - active when device attached (manual)
 # System service. Can't be stopped.
 #TabletInputService
