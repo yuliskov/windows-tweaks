@@ -20,9 +20,7 @@ REM )
 
 :SKIP_CHECK
 
-SET CLOSEPROCESS=%~dp0/../../../data/closeprocess
-
-REM TODO: "WebStorm", "IntelliJ", "CLion", "Rider", "GoLand", "PhpStorm"
+REM TODO: "WebStorm", "GoLand", "PhpStorm"
 
 for /d %%f in ("%UserProfile%\.IntelliJIdea*") do call :IdeaLicenseFix "%%f" idea
 for /d %%f in ("%AppData%\JetBrains\IntelliJIdea*") do call :IdeaLicenseFix2 "%%f" idea
@@ -30,6 +28,8 @@ for /d %%f in ("%UserProfile%\.CLion*") do call :IdeaLicenseFix "%%f" clion
 for /d %%f in ("%AppData%\JetBrains\CLion*") do call :IdeaLicenseFix2 "%%f" clion
 for /d %%f in ("%UserProfile%\.Rider*") do call :IdeaLicenseFix "%%f" rider
 for /d %%f in ("%AppData%\JetBrains\Rider*") do call :IdeaLicenseFix2 "%%f" rider
+for /d %%f in ("%UserProfile%\.PyCharm*") do call :IdeaLicenseFix "%%f" pycharm
+for /d %%f in ("%AppData%\JetBrains\PyCharm*") do call :IdeaLicenseFix2 "%%f" pycharm
 
 REM comment line below to disable task creation
 REM call :SetupTask
@@ -48,8 +48,8 @@ goto :eof
     echo Processing %IDEA_CONFIG_DIR%...
 
     REM 0. Closing JetBrains processes...
-    call %CLOSEPROCESS% %EXE_NAME%64.exe
-    call %CLOSEPROCESS% %EXE_NAME%.exe
+    taskkill /IM %EXE_NAME%64.exe /F 2>nul >nul
+    taskkill /IM %EXE_NAME%.exe /F 2>nul >nul
 
     REM 1. Remove trial directory
 
