@@ -51,7 +51,7 @@ REM IntelliJ crash dump (~1GB)
 del "%UserProfile%\java_error_in_idea.hprof" 2>nul
 
 REM Android SDK cleanup
-rmdir /s /q "%UserProfile%\.gradle\caches" 2>nul >nul
+REM rmdir /s /q "%UserProfile%\.gradle\caches" 2>nul >nul
 REM rmdir /s /q "%UserProfile%\.gradle\daemon" 2>nul >nul
 REM remove all (inc. old ones) gradle wrapper dists:
 REM rmdir /s /q "%UserProfile%\.gradle\wrapper" 2>nul >nul
